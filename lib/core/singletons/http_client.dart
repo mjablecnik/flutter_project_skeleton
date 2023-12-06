@@ -17,8 +17,6 @@ class HttpClient {
         connectTimeout: const Duration(seconds: 5),
         headers: {
           'Content-Type': 'application/json',
-          'X-Terminal-Id': Get.cached.deviceId,
-          'X-App-Code': '115',
         },
       ),
     );
