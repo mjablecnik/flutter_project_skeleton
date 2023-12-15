@@ -13,14 +13,14 @@ class HttpClient {
     Get.logger.log('DeviceId: ${Get.cached.deviceId}');
     client = Dio(
       BaseOptions(
-        baseUrl: Get.app.flavor.apiUrl,
+        baseUrl: Get.settings.apiUrl,
         connectTimeout: const Duration(seconds: 5),
         headers: {
           'Content-Type': 'application/json',
         },
       ),
     );
-    if (Get.app.flavor.logs.enableHttpLogs) {
+    if (Get.settings.logs.enableHttpLogs) {
       client.interceptors.add(
         TalkerDioLogger(
           settings: TalkerDioLoggerSettings(
@@ -29,7 +29,7 @@ class HttpClient {
             printResponseHeaders: false,
             printResponseMessage: true,
             responseFilter: (Response response) {
-              if (Get.app.flavor.logs.preventLargeResponses) {
+              if (Get.settings.logs.preventLargeResponses) {
                 return response.data.toString().length <= 500;
               } else {
                 return true;

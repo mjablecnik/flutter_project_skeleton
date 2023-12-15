@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:flutter_project_skeleton/core/app/flavors.dart';
+import 'package:flutter_project_skeleton/settings.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/cached_data.dart';
 import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
@@ -24,6 +24,8 @@ class Get {
   // Serve http client
   static final http = HttpClient.get;
 
+  static final settings = Settings.get;
+  
   // Serve logger object
   static final logger = TalkerFlutter.init(
     settings: TalkerSettings(
@@ -41,8 +43,6 @@ class App {
   get navigator => navigatorKey.currentState;
 
   get context => navigatorKey.currentContext;
-
-  Flavor get flavor => Flavors.get.currentFlavor;
 
   static final App get = App._initialize();
 

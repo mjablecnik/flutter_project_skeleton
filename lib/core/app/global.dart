@@ -17,6 +17,6 @@ class Routes {
   static const dialogTester = '/dialog-tester';
 }
 
-enum Environment { test, devel, preview, production }
+enum Environment { mock, test, devel, preview, production }
 
 enum DialogType { info, error, warning, success }

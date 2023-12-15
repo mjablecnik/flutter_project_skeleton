@@ -30,17 +30,17 @@ Future<void> setup({bool isTest = false}) async {
 }
 
 Future<void> run() async {
-  if (Get.app.flavor.sentryDsn != null) {
+  if (Get.settings.sentryDsn != null) {
     await SentryFlutter.init(
       (options) {
-        options.dsn = Get.app.flavor.sentryDsn;
+        options.dsn = Get.settings.sentryDsn;
         options.tracesSampleRate = 1.0;
       },
       appRunner: () => runApp(const MyApp()),
     );
   } else {
     runApp(DevicePreview(
-      enabled: !kReleaseMode && Get.app.flavor.environment == Environment.preview,
+      enabled: !kReleaseMode && Get.settings.environment == Environment.preview,
       builder: (context) => const MyApp(),
     ));
   }

@@ -1,5 +1,0 @@
-class Settings {
-  static const String serverApiKey = "";
-  static const String sentryDsn = "";
-  static const String testApiUrl = "http://10.0.0.58:5000";
-}
