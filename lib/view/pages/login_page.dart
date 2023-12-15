@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_project_skeleton/logic/cubits/user_cubit.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -20,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   Future<void> submit() async {
-    final userCubit = context.read<UserCubit>();
+    final userCubit = Get.cubit.user;
     final isValid = _formKey.currentState?.saveAndValidate();
     if (isValid != true) return;
 

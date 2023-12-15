@@ -6,11 +6,11 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/cached_data.dart';
 import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
 import 'package:flutter_project_skeleton/core/singletons/services.dart';
-import 'package:flutter_project_skeleton/core/singletons/providers.dart';
+import 'package:flutter_project_skeleton/core/singletons/cubits.dart';
 
 class Get {
   // Serve providers
-  static final provider = Providers.get;
+  static final cubit = Cubits.get;
 
   // Serve services
   static final service = Services.get;

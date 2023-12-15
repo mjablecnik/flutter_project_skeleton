@@ -16,42 +16,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TranslationProvider(
-      child: MultiBlocProvider(
-        providers: Get.provider.list,
-        child: Builder(builder: (context) {
-          return GestureDetector(
-            onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-            child: MaterialApp(
-              locale: TranslationProvider.of(context).flutterLocale,
-              supportedLocales: AppLocaleUtils.supportedLocales,
-              localizationsDelegates: GlobalMaterialLocalizations.delegates,
-              navigatorKey: App.get.navigatorKey,
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(
-                  seedColor: const Color(0xff00d33c),
-                  brightness: Brightness.light,
-                ),
-                useMaterial3: true,
+      child: Builder(builder: (context) {
+        return GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+          child: MaterialApp(
+            locale: TranslationProvider.of(context).flutterLocale,
+            supportedLocales: AppLocaleUtils.supportedLocales,
+            localizationsDelegates: GlobalMaterialLocalizations.delegates,
+            navigatorKey: App.get.navigatorKey,
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color(0xff00d33c),
+                brightness: Brightness.light,
               ),
-              initialRoute: Routes.logo,
-              routes: {
-                Routes.logo: (context) => const LogoPage(),
-                Routes.login: (context) => const LoginPage(),
-                Routes.info: (context) => const InfoPage(),
-                Routes.mainMenu: (context) => const MainMenuPage(),
-                Routes.dialogTester: (context) => const DialogTester(),
-              },
-              builder: (context, child) {
-                return MediaQuery(
-                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.25),
-                  child: child!,
-                );
-              },
+              useMaterial3: true,
             ),
-          );
-        }),
-      ),
+            initialRoute: Routes.logo,
+            routes: {
+              Routes.logo: (context) => const LogoPage(),
+              Routes.login: (context) => const LoginPage(),
+              Routes.info: (context) => const InfoPage(),
+              Routes.mainMenu: (context) => const MainMenuPage(),
+              Routes.dialogTester: (context) => const DialogTester(),
+            },
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.25),
+                child: child!,
+              );
+            },
+          ),
+        );
+      }),
     );
   }
 }

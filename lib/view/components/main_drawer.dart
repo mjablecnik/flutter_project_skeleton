@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 import 'package:flutter_project_skeleton/logic/cubits/user_cubit.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
@@ -29,6 +30,7 @@ class MainDrawer extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: BlocBuilder<UserCubit, User?>(
+                    bloc: Get.cubit.user,
                     builder: (context, state) {
                       return Text(
                         state?.fullName ?? "<unknown>",
@@ -72,7 +74,7 @@ class MainDrawer extends StatelessWidget {
             title: Text(context.t.menu.logout),
             onTap: () {
               Navigator.pop(context);
-              context.read<UserCubit>().logout();
+              Get.cubit.user.logout();
               Navigator.of(context).pushReplacementNamed(Routes.login);
             },
           ),

@@ -27,6 +27,7 @@ class _HomePageState extends State<MainMenuPage> {
       child: DefaultLayout(
         title: Get.cached.appName,
         body: BlocBuilder<CatListCubit, List<Cat>?>(
+          bloc: Get.cubit.cats,
           builder: (context, tiles) {
             if (tiles == null) {
               return const Center(child: CircularProgressIndicator());
