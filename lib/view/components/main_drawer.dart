@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project_skeleton/data/entities/user.dart';
+import 'package:flutter_project_skeleton/logic/cubits/user_cubit.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
-class MainDrawer extends ConsumerWidget {
-  const MainDrawer({Key? key}) : super(key: key);
+class MainDrawer extends StatelessWidget {
+  const MainDrawer({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Drawer(
       width: 280,
       shape: const RoundedRectangleBorder(
@@ -27,12 +28,16 @@ class MainDrawer extends ConsumerWidget {
                 Text(context.t.menu.loggedUser),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: Text(
-                    ref.watch(Get.state.user)?.fullName ?? "<unknown>",
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: BlocBuilder<UserCubit, User?>(
+                    builder: (context, state) {
+                      return Text(
+                        state?.fullName ?? "<unknown>",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    }
                   ),
                 ),
                 Wrap(
@@ -67,7 +72,7 @@ class MainDrawer extends ConsumerWidget {
             title: Text(context.t.menu.logout),
             onTap: () {
               Navigator.pop(context);
-              ref.read(Get.state.user.notifier).logout();
+              context.read<UserCubit>().logout();
               Navigator.of(context).pushReplacementNamed(Routes.login);
             },
           ),

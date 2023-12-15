@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:flutter_project_skeleton/logic/cubits/user_cubit.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -9,23 +9,23 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
 
-class LoginPage extends ConsumerStatefulWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  ConsumerState<LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends ConsumerState<LoginPage> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   Future<void> submit() async {
-    final userNotifier = ref.read(Get.state.user.notifier);
+    final userCubit = context.read<UserCubit>();
     final isValid = _formKey.currentState?.saveAndValidate();
     if (isValid != true) return;
 
     final form = _formKey.currentState?.value;
-    (await userNotifier.login(form!['name'], form['password'])).fold(
+    (await userCubit.login(form!['name'], form['password'])).fold(
       (user) => Navigator.of(context).pushReplacementNamed(Routes.mainMenu),
       (error) => error.showPopup(),
     );

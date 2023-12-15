@@ -1,19 +1,18 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/data/entities/cat.dart';
 import 'package:flutter_project_skeleton/logic/services/http_api_service.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
-class CatListNotifier extends StateNotifier<List<Cat>?> {
-  CatListNotifier(this.ref) : super(null) {
-    _httpApiService = ref.read(Get.service.httpApiService);
+class CatListCubit extends Cubit<List<Cat>?> {
+  CatListCubit() : super(null) {
+    _httpApiService = Get.service.httpApiService;
     init();
   }
 
-  final StateNotifierProviderRef ref;
   late final HttpApiService _httpApiService;
 
   update(List<Cat>? state) {
-    this.state = state;
+    emit(state);
   }
 
   init() => load();

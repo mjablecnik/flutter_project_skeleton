@@ -1,23 +1,22 @@
+import 'package:bloc/bloc.dart';
+import 'package:flutter_project_skeleton/core/app/exceptions.dart';
+import 'package:flutter_project_skeleton/core/singletons/getter.dart';
+import 'package:flutter_project_skeleton/data/entities/user.dart';
 import 'package:flutter_project_skeleton/logic/services/http_api_service.dart';
 import 'package:flutter_project_skeleton/logic/services/storage_service.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:result_dart/result_dart.dart';
-import 'package:flutter_project_skeleton/core/app/exceptions.dart';
-import 'package:flutter_project_skeleton/data/entities/user.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
-class UserNotifier extends StateNotifier<User?> {
-  UserNotifier(this.ref) : super(null) {
-    _httpApiService = ref.read(Get.service.httpApiService);
-    _storageService = ref.read(Get.service.storageService);
+class UserCubit extends Cubit<User?> {
+  UserCubit() : super(null) {
+    _httpApiService = Get.service.httpApiService;
+    _storageService = Get.service.storageService;
   }
 
-  final StateNotifierProviderRef ref;
   late final HttpApiService _httpApiService;
   late final StorageService _storageService;
 
   update(User? user) {
-    state = user;
+    emit(user);
   }
 
   Future<User?> getLoggedUser() async {

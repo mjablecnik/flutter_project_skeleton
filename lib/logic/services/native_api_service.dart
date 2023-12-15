@@ -1,10 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NativeApiService {
-  NativeApiService(ProviderRef ref) {
+  NativeApiService() {
     _methodChannel = const MethodChannel(Constants.methodChannel);
   }
 

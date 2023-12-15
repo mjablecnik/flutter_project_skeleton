@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
-  StorageService(ProviderRef ref) {
+  StorageService() {
     _storage = Get.cached.storage;
   }
 

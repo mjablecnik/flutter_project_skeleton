@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TranslationProvider(
-      child: ProviderScope(
+      child: MultiBlocProvider(
+        providers: Get.provider.list,
         child: Builder(builder: (context) {
           return GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),

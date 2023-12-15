@@ -1,19 +1,18 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:flutter_project_skeleton/core/app/flavors.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/cached_data.dart';
 import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
 import 'package:flutter_project_skeleton/core/singletons/services.dart';
-import 'package:flutter_project_skeleton/core/singletons/states.dart';
+import 'package:flutter_project_skeleton/core/singletons/providers.dart';
 
 class Get {
-  // Serve state notifier providers
-  static final state = States.get;
+  // Serve providers
+  static final provider = Providers.get;
 
-  // Serve service providers
+  // Serve services
   static final service = Services.get;
 
   // Serve simple preloaded data

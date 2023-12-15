@@ -5,10 +5,9 @@ import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
 import 'package:flutter_project_skeleton/data/entities/cat.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HttpApiService {
-  HttpApiService(ProviderRef ref) {
+  HttpApiService() {
     _api = Get.http;
     _client = Get.http.client;
   }
