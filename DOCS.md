@@ -6,15 +6,14 @@
   ```
   1) Clone this repository
   2) Setup fvm and Flutter
-  3) Run: flutter pub get
+  3) Run: fvm flutter pub get
   4) Run: fvm dart run build_runner build --delete-conflicting-outputs
   5) Run: fvm flutter pub run slang 
-  6) Run: cp lib/settings.dart.example lib/settings.dart
-  7) Edit lib/settings.dart for your local setup
-  8) Run: fvm flutter run --dart-define="FLAVOR=production"
+  6) Edit lib/settings.dart for your local setup
+  7) Run: fvm flutter run --dart-define="FLAVOR=production"
   ```
 
-## Setup fvm
+## Setup fvm and Flutter
   ```
   1) Run: dart pub global activate fvm
   2) Run: fvm install <flutter version>
