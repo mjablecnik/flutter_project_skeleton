@@ -5,7 +5,7 @@ import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 import 'package:flutter_project_skeleton/view/pages/dialog_tester_page.dart';
-import 'package:flutter_project_skeleton/view/pages/home_page.dart';
+import 'package:flutter_project_skeleton/view/app/home_page.dart';
 import 'package:flutter_project_skeleton/view/pages/info_page.dart';
 import 'package:flutter_project_skeleton/view/app/login_page.dart';
 import 'package:flutter_project_skeleton/view/app/logo_page.dart';
