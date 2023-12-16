@@ -3,7 +3,7 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
 
 class DialogTester extends StatelessWidget {
-  const DialogTester({Key? key}) : super(key: key);
+  const DialogTester({super.key});
 
   @override
   Widget build(BuildContext context) {

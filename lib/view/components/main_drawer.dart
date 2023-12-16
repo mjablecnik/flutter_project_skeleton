@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:flutter_project_skeleton/data/entities/user.dart';
-import 'package:flutter_project_skeleton/logic/cubits/user_cubit.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -29,17 +26,12 @@ class MainDrawer extends StatelessWidget {
                 Text(context.t.menu.loggedUser),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: BlocBuilder<UserCubit, User?>(
-                    bloc: Get.cubit.user,
-                    builder: (context, state) {
-                      return Text(
-                        state?.fullName ?? "<unknown>",
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      );
-                    }
+                  child: Text(
+                    AuthFlow.of(context).loggedUser?.fullName ?? "<unknown>",
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Wrap(
@@ -61,6 +53,7 @@ class MainDrawer extends StatelessWidget {
             title: Text(context.t.menu.settings),
             onTap: () {
               Navigator.pop(context);
+              Navigator.of(context).pushNamed(Routes.dialogTester);
             },
           ),
           ListTile(
@@ -74,7 +67,7 @@ class MainDrawer extends StatelessWidget {
             title: Text(context.t.menu.logout),
             onTap: () {
               Navigator.pop(context);
-              Get.cubit.user.logout();
+              AuthFlow.of(context).logout();
               Navigator.of(context).pushReplacementNamed(Routes.login);
             },
           ),

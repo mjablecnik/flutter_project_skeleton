@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
@@ -18,15 +19,11 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   Future<void> submit() async {
-    final userCubit = Get.cubit.user;
     final isValid = _formKey.currentState?.saveAndValidate();
     if (isValid != true) return;
 
     final form = _formKey.currentState?.value;
-    (await userCubit.login(form!['name'], form['password'])).fold(
-      (user) => Navigator.of(context).pushReplacementNamed(Routes.mainMenu),
-      (error) => error.showPopup(),
-    );
+    AuthFlow.of(context).login(form!['name'], form['password']);
   }
 
   @override

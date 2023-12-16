@@ -6,10 +6,12 @@ class DefaultLayout extends StatelessWidget {
     super.key,
     required this.title,
     required this.body,
+    this.drawer = const MainDrawer(),
   });
 
   final String title;
   final Widget body;
+  final Widget drawer;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class DefaultLayout extends StatelessWidget {
         title: Text(title),
         titleSpacing: 0,
       ),
-      drawer: !Navigator.of(context).canPop() ? const MainDrawer() : null,
+      drawer: !Navigator.of(context).canPop() ? drawer : null,
       body: body,
     );
   }

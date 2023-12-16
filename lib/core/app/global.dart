@@ -13,7 +13,7 @@ class Routes {
   static const logo = '/';
   static const login = '/login';
   static const info = '/info';
-  static const mainMenu = '/main-menu';
+  static const home = '/main-menu';
   static const dialogTester = '/dialog-tester';
 }
 

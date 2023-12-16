@@ -12,7 +12,7 @@ class Services {
   static final Services get = Services._initialize();
 
   Services._initialize() {
-    nativeApiService = NativeApiService();
+    nativeApiService = const NativeApiService();
     httpApiService = HttpApiService();
     storageService = StorageService();
   }

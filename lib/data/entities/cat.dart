@@ -5,7 +5,7 @@ part 'cat.freezed.dart';
 part 'cat.g.dart';
 
 @freezed
-class Cat with _$CatImage {
+class Cat with _$Cat {
   const Cat._();
 
   const factory Cat({
@@ -15,6 +15,6 @@ class Cat with _$CatImage {
     required int height,
   }) = _CatImage;
 
-  factory Cat.fromJson(Map<String, Object?> json) => _$CatImageFromJson(json);
+  factory Cat.fromJson(Map<String, Object?> json) => _$CatFromJson(json);
 }
 

@@ -6,14 +6,14 @@ import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
 
-class MainMenuPage extends StatefulWidget {
-  const MainMenuPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MainMenuPage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<MainMenuPage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
