@@ -15,6 +15,12 @@ class User with _$User {
     required String userName,
   }) = _User;
 
+  const factory User.anonymous({
+    @Default("Anonymous") String firstName,
+    @Default("User") String lastName,
+    @Default("anonymous") String userName,
+  }) = AnonymousUser;
+
   String get fullName => "$firstName $lastName";
 
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);

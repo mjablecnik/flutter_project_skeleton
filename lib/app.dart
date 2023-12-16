@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/data/entities/user.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 import 'package:flutter_project_skeleton/view/pages/dialog_tester_page.dart';
 import 'package:flutter_project_skeleton/view/app/home_page.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return TranslationProvider(
       child: Builder(builder: (context) {
         return AuthFlow(
-          user: ValueNotifier(null),
+          user: ValueNotifier(Get.settings.disableAuth ? const User.anonymous() : null),
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
             child: MaterialApp(

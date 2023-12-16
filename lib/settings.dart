@@ -16,8 +16,9 @@ class Settings {
   late final String apiUrl;
   late final String apiKey;
   late final Environment environment;
-  late final Logs logs = const Logs();
   late final String? sentryDsn;
+  final Logs logs = const Logs();
+  final bool disableAuth = true;
 
   static final Settings get = Settings._initialize();
 

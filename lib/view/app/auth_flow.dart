@@ -17,7 +17,7 @@ class AuthFlow extends InheritedWidget {
 
   static AuthFlow of(BuildContext context) {
     final AuthFlow? result = context.dependOnInheritedWidgetOfExactType<AuthFlow>();
-    assert(result != null, 'No MyFlow found in context');
+    assert(result != null, 'No AuthFlow found in context');
     return result!;
   }
 
@@ -34,9 +34,8 @@ class AuthFlow extends InheritedWidget {
   }
 
   tryLogin() async {
-    final User? loggedUser = await Get.service.storageService.getLoggedUser();
-    if (user.value != null) user.value = loggedUser;
-    if (loggedUser == null) {
+    user.value ??= await Get.service.storageService.getLoggedUser();
+    if (user.value == null) {
       Get.app.navigator.pushReplacementNamed(Routes.login);
     } else {
       Get.app.navigator.pushReplacementNamed(Routes.home);
