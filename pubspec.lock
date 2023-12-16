@@ -308,10 +308,11 @@ packages:
   dialog_kh:
     dependency: "direct main"
     description:
-      name: dialog_kh
-      sha256: "45ea4f914b10f650bd190bf91e40f87bcc4dde9ca87ff68e4d03f709ff608f28"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "406cc953d9ad46c82b8bf2c867295c2cfdf1b75e"
+      url: "git@github.com:FlutterPackages/dialog_kh.git"
+    source: git
     version: "0.0.3"
   diff_match_patch:
     dependency: transitive
