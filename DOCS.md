@@ -1,5 +1,5 @@
 ## Supported Flutter version
-3.13.2
+3.19.1
 
 ## Installation
 
