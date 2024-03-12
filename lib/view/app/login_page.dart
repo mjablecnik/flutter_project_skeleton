@@ -4,6 +4,7 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
+import 'package:flutter_project_skeleton/view/widgets/back_button_handler.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
@@ -28,8 +29,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: Popup.showCloseDialog,
+    return BackButtonHandler(
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
