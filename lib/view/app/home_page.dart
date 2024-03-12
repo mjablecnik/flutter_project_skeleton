@@ -14,12 +14,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () {
-        if (Navigator.of(context).canPop()) {
-          return Future.value(true);
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (bool didPop) async {
+        if (didPop) return;
+        if (Get.app.navigator.canPop()) {
+          Get.app.navigator.pop(true);
         } else {
-          return Popup.showCloseDialog();
+          final bool shouldPop = await Popup.showCloseDialog();
+          if (shouldPop) {
+            Get.app.navigator.pop();
+          }
         }
       },
       child: DefaultLayout(
