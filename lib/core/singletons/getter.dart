@@ -7,6 +7,7 @@ import 'package:flutter_project_skeleton/core/singletons/cached_data.dart';
 import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
 import 'package:flutter_project_skeleton/core/singletons/services.dart';
 import 'package:flutter_project_skeleton/core/singletons/cubits.dart';
+import 'package:vader_popup/popup_dialog.dart';
 
 class Get {
   // Serve providers
@@ -20,6 +21,9 @@ class Get {
 
   // Serve method channel
   static const methodChannel = MethodChannel(Constants.methodChannel);
+
+  // Serve popup builder
+  static final popup = PopupDialog(context: app.context);
 
   // Serve http client
   static final http = HttpClient.get;

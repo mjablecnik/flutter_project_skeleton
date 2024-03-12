@@ -1,7 +1,6 @@
-import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:flutter_project_skeleton/view/popups/default.dart';
+import 'package:vader_popup/vader_popup.dart';
 
 class ServerException implements Exception {
   final String? message;
@@ -15,11 +14,10 @@ class ServerException implements Exception {
 
   void showPopup() {
     final error = t.errors[runtimeType.toString()]!;
-    Popup.dialog(
-      Get.app.context,
+    Get.popup.dialog(
       title: error.title,
       message: error.message,
-      type: DialogType.values.byName(error.type),
+      type: PopupType.values.byName(error.type),
     );
   }
 }
