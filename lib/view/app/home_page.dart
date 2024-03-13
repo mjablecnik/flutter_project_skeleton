@@ -14,11 +14,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return BackButtonHandler(
-      child: DefaultLayout(
-        title: Get.cached.appName,
-        body: const CatList(),
-      ),
+    return DefaultLayout(
+      title: Get.cached.appName,
+      body: const CatList(),
     );
   }
 }

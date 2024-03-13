@@ -1,28 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/view/components/main_drawer.dart';
+import 'package:flutter_project_skeleton/view/widgets/back_button_handler.dart';
 
 class DefaultLayout extends StatelessWidget {
   const DefaultLayout({
     super.key,
     required this.title,
     required this.body,
+    this.actions,
     this.drawer = const MainDrawer(),
+    this.onBack,
   });
 
   final String title;
   final Widget body;
   final Widget drawer;
+  final List<Widget>? actions;
+  final Function()? onBack;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-        titleSpacing: 0,
+    return BackButtonHandler(
+      onBack: onBack,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(title),
+          titleSpacing: 0,
+          actions: actions,
+        ),
+        drawer: !Navigator.of(context).canPop() ? drawer : null,
+        body: body,
       ),
-      drawer: !Navigator.of(context).canPop() ? drawer : null,
-      body: body,
     );
   }
 }

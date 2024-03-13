@@ -4,10 +4,9 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
-import 'package:flutter_project_skeleton/view/widgets/back_button_handler.dart';
+import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:flutter_project_skeleton/view/popups/default.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -29,84 +28,79 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BackButtonHandler(
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(Get.cached.appName),
-          actions: [
-            PopupMenuButton(
-              position: PopupMenuPosition.under,
-              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
-                PopupMenuItem(
-                  onTap: () => Navigator.of(context).pushNamed(Routes.info),
-                  child: Text(context.t.menu.about),
-                ),
-              ],
+    return DefaultLayout(
+      title: Get.cached.appName,
+      actions: [
+        PopupMenuButton(
+          position: PopupMenuPosition.under,
+          itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+            PopupMenuItem(
+              onTap: () => Navigator.of(context).pushNamed(Routes.info),
+              child: Text(context.t.menu.about),
             ),
           ],
         ),
-        body: KeyboardVisibilityBuilder(
-          builder: (BuildContext context, bool isKeyboardVisible) {
-            return ListView(
-              padding: EdgeInsets.only(
-                left: 50.0,
-                right: 50.0,
-                top: isKeyboardVisible ? 30 : 80,
-                bottom: 50,
+      ],
+      body: KeyboardVisibilityBuilder(
+        builder: (BuildContext context, bool isKeyboardVisible) {
+          return ListView(
+            padding: EdgeInsets.only(
+              left: 50.0,
+              right: 50.0,
+              top: isKeyboardVisible ? 30 : 80,
+              bottom: 50,
+            ),
+            physics: const NeverScrollableScrollPhysics(),
+            children: <Widget>[
+              Text(
+                context.t.login.title,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              physics: const NeverScrollableScrollPhysics(),
-              children: <Widget>[
-                Text(
-                  context.t.login.title,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-                const SizedBox(height: 20),
-                FormBuilder(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      FormBuilderTextField(
-                        name: 'name',
-                        decoration: InputDecoration(labelText: context.t.login.name),
-                        keyboardType: TextInputType.number,
-                        validator: FormBuilderValidators.compose([
-                          FormBuilderValidators.required(
-                            errorText: context.t.login.error.required.name,
-                          ),
-                        ]),
-                      ),
-                      const SizedBox(height: 10),
-                      FormBuilderTextField(
-                        name: 'password',
-                        decoration: InputDecoration(labelText: context.t.login.password),
-                        keyboardType: TextInputType.number,
-                        obscureText: true,
-                        validator: FormBuilderValidators.compose([
-                          FormBuilderValidators.required(
-                            errorText: context.t.login.error.required.password,
-                          ),
-                        ]),
-                      ),
-                      const SizedBox(height: 100),
-                      MaterialButton(
-                        height: 50,
-                        minWidth: 300,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
+              const SizedBox(height: 20),
+              FormBuilder(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    FormBuilderTextField(
+                      name: 'name',
+                      decoration: InputDecoration(labelText: context.t.login.name),
+                      keyboardType: TextInputType.number,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(
+                          errorText: context.t.login.error.required.name,
                         ),
-                        color: Theme.of(context).colorScheme.primary,
-                        textColor: Theme.of(context).colorScheme.background,
-                        onPressed: submit,
-                        child: Text(context.t.login.submit),
+                      ]),
+                    ),
+                    const SizedBox(height: 10),
+                    FormBuilderTextField(
+                      name: 'password',
+                      decoration: InputDecoration(labelText: context.t.login.password),
+                      keyboardType: TextInputType.number,
+                      obscureText: true,
+                      validator: FormBuilderValidators.compose([
+                        FormBuilderValidators.required(
+                          errorText: context.t.login.error.required.password,
+                        ),
+                      ]),
+                    ),
+                    const SizedBox(height: 100),
+                    MaterialButton(
+                      height: 50,
+                      minWidth: 300,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
-                    ],
-                  ),
+                      color: Theme.of(context).colorScheme.primary,
+                      textColor: Theme.of(context).colorScheme.background,
+                      onPressed: submit,
+                      child: Text(context.t.login.submit),
+                    ),
+                  ],
                 ),
-              ],
-            );
-          },
-        ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
