@@ -27,6 +27,8 @@ dialogs:
     no: "Ne"
 about:
   title: "O aplikaci"
+  name: "Jméno aplikace:"
+  version: "Verze:"
 login:
   title: "Přihlášení"
   name: "Jméno"

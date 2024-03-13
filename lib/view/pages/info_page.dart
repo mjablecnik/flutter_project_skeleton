@@ -25,7 +25,7 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text("Jméno aplikace:", textAlign: TextAlign.center),
+                  child: Text(context.t.about.name, textAlign: TextAlign.center),
                 ),
               ),
               TableCell(
@@ -45,7 +45,7 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text("Verze:", textAlign: TextAlign.center),
+                  child: Text(context.t.about.version, textAlign: TextAlign.center),
                 ),
               ),
               TableCell(
