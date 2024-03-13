@@ -19,6 +19,8 @@ errors(map, interface=Error):
     title: "Neznámý terminál"
     message: "Pokoušíte se přihlásit s neznámým terminálem"
     type: "warning"
+app:
+  offline_mode: "Offline mode"
 dialogs:
   close_app:
     title: "Ukončit aplikaci"
