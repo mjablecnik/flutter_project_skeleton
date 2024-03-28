@@ -33,44 +33,44 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  dio: ^5.4.0
-  slang: ^3.26.1
-  slang_flutter: ^3.26.1
-  device_preview: ^1.1.0
-  sentry_flutter: ^7.13.2
-  talker_flutter: ^3.5.6
-  talker_dio_logger: ^2.3.3
-  flutter_form_builder: ^9.1.1
-  form_builder_validators: ^9.1.0
-  flutter_keyboard_visibility: ^5.4.1
-  internet_connection_checker: ^1.0.0+1
+  dio: 5.4.2
+  slang: 3.30.2
+  slang_flutter: 3.30.0
+  device_preview: 1.1.0
+  sentry_flutter: 7.18.0
+  talker_flutter: 4.1.0
+  talker_dio_logger: 4.1.0
+  flutter_form_builder: 9.2.1
+  form_builder_validators: 9.1.0
+  flutter_keyboard_visibility: 6.0.0
+  internet_connection_checker: 1.0.0+1
 
-  bloc: ^8.1.0
-  flutter_bloc: ^8.1.1
+  bloc: 8.1.4
+  flutter_bloc: 8.1.5
 
-  crypto: ^3.0.3
-  freezed: ^2.4.5
-  freezed_annotation: ^2.4.1
-  shared_preferences: ^2.2.2
-  json_serializable: ^6.7.1
-  json_annotation: ^4.8.1
-  mek_data_class: ^1.4.0
+  crypto: 3.0.3
+  freezed: 2.4.7
+  freezed_annotation: 2.4.1
+  shared_preferences: 2.2.2
+  json_serializable: 6.7.1
+  json_annotation: 4.8.1
+  mek_data_class: 1.4.0
   result_dart:
     git: git@github.com:FlutterPackages/result_dart.git
 
-  flutter_offline: ^3.0.1
-  device_info_plus: ^9.1.1
-  package_info_plus: ^4.2.0
-  mobile_device_identifier: ^0.0.2
-  android_device_id_generator: ^0.1.1
+  flutter_offline: 3.0.1
+  device_info_plus: 9.1.2
+  package_info_plus: 5.0.1
+  mobile_device_identifier: 0.0.2
+  android_device_id_generator: 0.1.1
 
   vader_popup:
     git: https://github.com/mjablecnik/vader_popup.git
-  url_launcher: ^6.2.1
+  url_launcher: 6.2.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 1.0.6
 
 dev_dependencies:
   flutter_test:
@@ -81,10 +81,10 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  bloc_test: ^9.1.0
-  build_runner: ^2.4.7
-  flutter_lints: ^3.0.1
-  package_rename: 1.5.1
+  bloc_test: 9.1.7
+  build_runner: 2.4.8
+  flutter_lints: 3.0.2
+  package_rename: 1.5.3
   flutter_launcher_icons: 0.13.1
   mek_data_class_generator: 1.5.1
 
