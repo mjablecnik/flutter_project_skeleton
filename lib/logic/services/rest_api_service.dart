@@ -6,8 +6,8 @@ import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
 import 'package:flutter_project_skeleton/data/entities/cat.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 
-class HttpApiService {
-  HttpApiService() {
+class RestApiService {
+  RestApiService() {
     _api = Get.http;
     _client = Get.http.client;
   }
@@ -45,8 +45,8 @@ class HttpApiService {
 
   Future<List<Cat>> getCats() async {
     return _api.createRequest(
-          () => _client.get('/v1/images/search?limit=10'),
-          (data) async => [...data.map((e) => Cat.fromJson(e))],
+      () => _client.get('/v1/images/search?limit=10'),
+      (data) async => [...data.map((e) => Cat.fromJson(e))],
     );
   }
 }

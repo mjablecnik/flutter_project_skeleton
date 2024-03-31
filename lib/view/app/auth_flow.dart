@@ -23,7 +23,7 @@ class AuthFlow extends InheritedWidget {
 
   login(String userName, String password) async {
     try {
-      final httpApiService = Get.service.httpApiService;
+      final httpApiService = Get.service.restApiService;
       httpApiService.setBasicAuth(userName, password);
       user.value = await httpApiService.getUser(userName);
       Get.service.storageService.saveLoggedUser(user.value);
@@ -45,7 +45,7 @@ class AuthFlow extends InheritedWidget {
   bool logout() {
     user.value = null;
     Get.service.storageService.saveLoggedUser(null);
-    return Get.service.httpApiService.removeBasicAuth();
+    return Get.service.restApiService.removeBasicAuth();
   }
 
   @override
