@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_project_skeleton/core/singletons/secure_storage.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:flutter_project_skeleton/settings.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
@@ -28,8 +29,12 @@ class Get {
   // Serve http client
   static final http = HttpClient.get;
 
+  // Serve app settings
   static final settings = Settings.get;
-  
+
+  // Serve secure storage
+  static final storage = SecureStorage.get;
+
   // Serve logger object
   static final logger = TalkerFlutter.init(
     settings: TalkerSettings(

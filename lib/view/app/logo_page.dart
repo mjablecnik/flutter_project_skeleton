@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 
 class LogoPage extends StatefulWidget {

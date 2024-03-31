@@ -7,6 +7,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_keyboard_visibility (0.0.1):
     - Flutter
+  - flutter_secure_storage (6.0.0):
+    - Flutter
   - JNKeychain (0.1.4)
   - mobile_device_identifier (0.0.1):
     - Flutter
@@ -39,6 +41,7 @@ DEPENDENCIES:
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - flutter_keyboard_visibility (from `.symlinks/plugins/flutter_keyboard_visibility/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - mobile_device_identifier (from `.symlinks/plugins/mobile_device_identifier/ios`)
   - network_info_plus (from `.symlinks/plugins/network_info_plus/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
@@ -64,6 +67,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_keyboard_visibility:
     :path: ".symlinks/plugins/flutter_keyboard_visibility/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   mobile_device_identifier:
     :path: ".symlinks/plugins/mobile_device_identifier/ios"
   network_info_plus:
@@ -86,6 +91,7 @@ SPEC CHECKSUMS:
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
+  flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
   JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
   mobile_device_identifier: 34f80c8985bb1506880c2ae10cb24cfb9918f1a7
   network_info_plus: 6d0c3eb8367b8164fa3fb0c19875e3f59d49697f

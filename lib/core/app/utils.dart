@@ -5,14 +5,12 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobile_device_identifier/mobile_device_identifier.dart';
 import 'package:android_device_id_generator/android_device_id_generator.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
 class Utils {
   static getDeviceId() async {
-    final pref = await SharedPreferences.getInstance();
-    String? deviceId = pref.getString(StoreKeys.deviceId);
+    String? deviceId = await Get.storage.getString(StoreKeys.deviceId);
 
     if (deviceId == null) {
       try {
@@ -23,7 +21,7 @@ class Utils {
         deviceId ??= generateAndroidDeviceId(secure: true);
       }
 
-      pref.setString(StoreKeys.deviceId, deviceId!);
+      Get.storage.saveString(StoreKeys.deviceId, deviceId!);
     }
 
     return deviceId;
