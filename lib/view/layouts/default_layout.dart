@@ -15,7 +15,7 @@ class DefaultLayout extends StatelessWidget {
 
   final String title;
   final Widget body;
-  final Widget drawer;
+  final Widget? drawer;
   final List<Widget>? actions;
   final Function()? onBack;
 

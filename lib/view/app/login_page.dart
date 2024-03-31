@@ -30,6 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return DefaultLayout(
       title: Get.cached.appName,
+      drawer: null,
       actions: [
         PopupMenuButton(
           position: PopupMenuPosition.under,
