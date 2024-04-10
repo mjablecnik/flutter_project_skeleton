@@ -3,7 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
+import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     if (isValid != true) return;
 
     final form = _formKey.currentState?.value;
-    AuthFlow.of(context).tokenAuthLogin(
+    injector.get<AuthCubit>().tokenAuthLogin(
       userName: form!['name'],
       password: form['password'],
       onSuccess: (user) => Navigator.of(context).pushReplacementNamed(Routes.home),

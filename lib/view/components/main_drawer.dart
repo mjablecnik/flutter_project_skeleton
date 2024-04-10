@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
+import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -27,7 +27,7 @@ class MainDrawer extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0),
                   child: Text(
-                    AuthFlow.of(context).loggedUser?.fullName ?? "<unknown>",
+                    injector.get<AuthCubit>().loggedUser?.fullName ?? "<unknown>",
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -67,7 +67,7 @@ class MainDrawer extends StatelessWidget {
             title: Text(context.t.menu.logout),
             onTap: () {
               Navigator.pop(context);
-              AuthFlow.of(context).logout();
+              injector.get<AuthCubit>().logout();
               Navigator.of(context).pushReplacementNamed(Routes.login);
             },
           ),

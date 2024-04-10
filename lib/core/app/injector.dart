@@ -5,6 +5,7 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/clients/http_client.dart';
 import 'package:flutter_project_skeleton/core/clients/secure_storage.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
+import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/logic/services/native_api_service.dart';
 import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
@@ -30,6 +31,7 @@ class Injector {
     _injector.addSingleton(RestApiService.new);
     _injector.addSingleton(StorageService.new);
 
+    _injector.addLazySingleton(AuthCubit.new);
     _injector.addLazySingleton(ProductListCubit.new);
 
     _injector.commit();

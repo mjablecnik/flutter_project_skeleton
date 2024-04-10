@@ -18,7 +18,6 @@ class Settings {
   late final Environment environment;
   late final String? sentryDsn;
   final Logs logs = const Logs();
-  final bool disableAuth = true;
 
   Settings() {
     const flavor = String.fromEnvironment("FLAVOR");
