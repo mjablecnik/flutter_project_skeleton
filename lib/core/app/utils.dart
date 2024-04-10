@@ -3,33 +3,9 @@ import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_device_identifier/mobile_device_identifier.dart';
-import 'package:android_device_id_generator/android_device_id_generator.dart';
-import 'package:flutter_project_skeleton/core/app/global.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
 class Utils {
-  static getDeviceId() async {
-    String? deviceId = await Get.storage.getString(StoreKeys.deviceId);
-
-    if (deviceId == null) {
-      try {
-        deviceId = await Get.methodChannel.invokeMethod('getSecureDeviceId');
-      } on Exception catch (e) {
-        Get.logger.warning(e);
-        deviceId = await MobileDeviceIdentifier().getDeviceId();
-        deviceId ??= generateAndroidDeviceId(secure: true);
-      }
-
-      Get.storage.saveString(StoreKeys.deviceId, deviceId!);
-    }
-
-    return deviceId;
-  }
-
-  static int getRandomNumber(int max) {
-    return Random().nextInt(max);
-  }
+  static int getRandomNumber(int max) => Random().nextInt(max);
 
   static String getRandomString(int length) {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -46,5 +22,5 @@ class Utils {
     return sha1.convert(utf8.encode(text)).toString();
   }
 
-  static bool get keyboardIsOpen => MediaQuery.of(Get.app.context).viewInsets.bottom == 0;
+  static bool keyboardIsOpen(BuildContext context) => MediaQuery.of(context).viewInsets.bottom == 0;
 }

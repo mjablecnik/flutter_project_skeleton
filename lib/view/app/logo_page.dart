@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 
 class LogoPage extends StatefulWidget {
@@ -16,7 +16,13 @@ class _LogoPageState extends State<LogoPage> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 1), () async {
-      AuthFlow.of(context).tryLogin();
+      final navigator = Navigator.of(context);
+      final user = await AuthFlow.of(context).getLoggedUser();
+      if (user == null) {
+        navigator.pushReplacementNamed(Routes.login);
+      } else {
+        navigator.pushReplacementNamed(Routes.home);
+      }
     });
   }
 

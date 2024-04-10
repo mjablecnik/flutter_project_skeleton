@@ -1,11 +1,10 @@
 import 'package:flutter_project_skeleton/core/app/global.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:flutter_project_skeleton/core/singletons/secure_storage.dart';
+import 'package:flutter_project_skeleton/core/clients/secure_storage.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 
 class StorageService {
   StorageService() {
-    _storage = Get.storage;
+    _storage = SecureStorage();
   }
 
   late final SecureStorage _storage;
@@ -14,7 +13,7 @@ class StorageService {
     try {
       return User.fromJson(await _storage.getMap(StorageKey.loggedUser.name));
     } catch (e) {
-      Get.logger.error(e);
+      logger.error(e);
       return null;
     }
   }

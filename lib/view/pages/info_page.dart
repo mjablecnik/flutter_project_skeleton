@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
+import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 
 class InfoPage extends StatelessWidget {
@@ -25,7 +26,10 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text(context.t.about.name, textAlign: TextAlign.center),
+                  child: Text(
+                    context.t.about.name,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               TableCell(
@@ -33,7 +37,10 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text(Get.cached.appName, textAlign: TextAlign.center),
+                  child: Text(
+                    injector.get<CachedData>().appName,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ],
@@ -45,7 +52,10 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text(context.t.about.version, textAlign: TextAlign.center),
+                  child: Text(
+                    context.t.about.version,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               TableCell(
@@ -53,7 +63,10 @@ class InfoPage extends StatelessWidget {
                   height: 24,
                   width: 32,
                   color: Colors.white,
-                  child: Text(Get.cached.appVersion, textAlign: TextAlign.center),
+                  child: Text(
+                    injector.get<CachedData>().appVersion,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
             ],

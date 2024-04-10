@@ -20,9 +20,7 @@ class Settings {
   final Logs logs = const Logs();
   final bool disableAuth = true;
 
-  static final Settings get = Settings._initialize();
-
-  Settings._initialize() {
+  Settings() {
     const flavor = String.fromEnvironment("FLAVOR");
 
     switch (flavor) {

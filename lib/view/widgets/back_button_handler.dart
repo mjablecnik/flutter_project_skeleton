@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
 
 class BackButtonHandler extends StatefulWidget {
@@ -21,11 +20,11 @@ class _BackButtonHandlerState extends State<BackButtonHandler> {
       canPop: false,
       onPopInvoked: (bool didPop) async {
         if (didPop) return;
-        if (Get.app.navigator.canPop()) {
+        if (Navigator.of(context).canPop()) {
           widget.onBack?.call();
-          Get.app.navigator.pop(true);
+          Navigator.of(context).pop(true);
         } else {
-          final bool shouldPop = await Popup.showCloseDialog();
+          final bool shouldPop = await Popup.showCloseDialog(context);
           if (shouldPop) {
             SystemNavigator.pop();
           }

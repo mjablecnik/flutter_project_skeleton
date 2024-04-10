@@ -1,27 +1,30 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_project_skeleton/core/app/exceptions.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
+import 'package:flutter_project_skeleton/core/app/cached_data.dart';
+import 'package:flutter_project_skeleton/settings.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
 
 class HttpClient {
-  late final Dio client;
+  late final Dio dio;
 
-  static final HttpClient get = HttpClient._initialize();
-
-  HttpClient._initialize() {
-    Get.logger.log('DeviceId: ${Get.cached.deviceId}');
-    client = Dio(
+  HttpClient({
+    required CachedData cached,
+    required Settings settings,
+  }) {
+    //logger.log('DeviceId: ${cached.deviceId}');
+    dio = Dio(
       BaseOptions(
-        baseUrl: Get.settings.apiUrl,
+        baseUrl: settings.apiUrl,
         connectTimeout: const Duration(seconds: 5),
         headers: {
           'Content-Type': 'application/json',
         },
       ),
     );
-    if (Get.settings.logs.enableHttpLogs) {
-      client.interceptors.add(
+    if (settings.logs.enableHttpLogs) {
+      dio.interceptors.add(
         TalkerDioLogger(
           settings: TalkerDioLoggerSettings(
             printRequestHeaders: true,
@@ -29,7 +32,7 @@ class HttpClient {
             printResponseHeaders: false,
             printResponseMessage: true,
             responseFilter: (Response response) {
-              if (Get.settings.logs.preventLargeResponses) {
+              if (settings.logs.preventLargeResponses) {
                 return response.data.toString().length <= 500;
               } else {
                 return true;
@@ -42,16 +45,16 @@ class HttpClient {
   }
 
   Future<T> createRequest<T>(
-      Future<Response> Function() request,
-      Future<T> Function(dynamic data) parseData,
-      ) async {
+    Future<Response> Function() request,
+    Future<T> Function(dynamic data) parseData,
+  ) async {
     try {
       final response = await request.call();
       if (response.statusCode == 200 && response.data != null) {
         try {
           return await parseData(response.data);
         } catch (error) {
-          Get.logger.handle(error);
+          logger.handle(error);
           throw ParseDataException();
         }
       }

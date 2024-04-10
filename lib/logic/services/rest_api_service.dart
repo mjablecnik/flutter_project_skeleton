@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:flutter_project_skeleton/core/singletons/http_client.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
+import 'package:flutter_project_skeleton/core/clients/http_client.dart';
 import 'package:flutter_project_skeleton/data/entities/cat.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 
 class RestApiService {
-  RestApiService() {
-    _api = Get.http;
-    _client = Get.http.client;
+  RestApiService({required HttpClient httpClient}) {
+    _api = httpClient;
+    _client = httpClient.dio;
   }
 
   late final Dio _client;
@@ -21,7 +21,7 @@ class RestApiService {
       _client.options.headers['authorization'] = basicAuth;
       return true;
     } catch (e) {
-      Get.logger.error(e);
+      logger.error(e);
       return false;
     }
   }
@@ -33,7 +33,7 @@ class RestApiService {
       }
       return true;
     } catch (e) {
-      Get.logger.error(e);
+      logger.error(e);
       return false;
     }
   }

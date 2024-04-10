@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
+import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/view/app/auth_flow.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
@@ -23,13 +23,18 @@ class _LoginPageState extends State<LoginPage> {
     if (isValid != true) return;
 
     final form = _formKey.currentState?.value;
-    AuthFlow.of(context).login(form!['name'], form['password']);
+    AuthFlow.of(context).login(
+      userName: form!['name'],
+      password: form['password'],
+      onSuccess: (user) => Navigator.of(context).pushReplacementNamed(Routes.home),
+      onFailure: (e) => e.showPopup(context),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
-      title: Get.cached.appName,
+      title: injector.get<CachedData>().appName,
       drawer: null,
       actions: [
         PopupMenuButton(
@@ -65,7 +70,6 @@ class _LoginPageState extends State<LoginPage> {
                     FormBuilderTextField(
                       name: 'name',
                       decoration: InputDecoration(labelText: context.t.login.name),
-                      keyboardType: TextInputType.number,
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(
                           errorText: context.t.login.error.required.name,
@@ -76,7 +80,6 @@ class _LoginPageState extends State<LoginPage> {
                     FormBuilderTextField(
                       name: 'password',
                       decoration: InputDecoration(labelText: context.t.login.password),
-                      keyboardType: TextInputType.number,
                       obscureText: true,
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(

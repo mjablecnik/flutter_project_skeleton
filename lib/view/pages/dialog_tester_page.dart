@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 import 'package:vader_popup/vader_popup.dart';
 
@@ -24,7 +24,8 @@ class DialogTester extends StatelessWidget {
               color: Colors.green,
               textColor: Theme.of(context).colorScheme.background,
               onPressed: () {
-                Get.popup.success(
+                popup.success(
+                  context: context,
                   title: "Success dialog",
                   message: "Toto je success dialog",
                 );
@@ -40,7 +41,8 @@ class DialogTester extends StatelessWidget {
               color: Colors.orange,
               textColor: Theme.of(context).colorScheme.background,
               onPressed: () {
-                Get.popup.warning(
+                popup.warning(
+                  context: context,
                   title: "Warning dialog",
                   message: "Toto je warning dialog",
                 );
@@ -56,7 +58,8 @@ class DialogTester extends StatelessWidget {
               color: Colors.red,
               textColor: Theme.of(context).colorScheme.background,
               onPressed: () {
-                Get.popup.error(
+                popup.error(
+                  context: context,
                   title: "Error dialog",
                   message: "Toto je error dialog",
                 );
@@ -72,7 +75,8 @@ class DialogTester extends StatelessWidget {
               color: Colors.blue,
               textColor: Theme.of(context).colorScheme.background,
               onPressed: () {
-                Get.popup.info(
+                popup.info(
+                  context: context,
                   title: "Info dialog",
                   message: "Toto je info dialog",
                 );
@@ -88,7 +92,8 @@ class DialogTester extends StatelessWidget {
               color: Colors.purpleAccent,
               textColor: Theme.of(context).colorScheme.background,
               onPressed: () {
-                Get.popup.question(
+                popup.question(
+                  context: context,
                   title: "Question dialog",
                   message: "Toto je question dialog",
                   icon: const Icon(Icons.question_mark, color: Colors.purpleAccent, size: 70),

@@ -1,3 +1,18 @@
+import 'package:flutter_project_skeleton/core/app/injector.dart';
+import 'package:talker_flutter/talker_flutter.dart';
+import 'package:vader_popup/vader_popup.dart';
+
+final logger = TalkerFlutter.init(
+  settings: TalkerSettings(
+    useHistory: false,
+  ),
+);
+
+const popup = PopupDialog();
+
+final injector = Injector.instance;
+
+
 class StoreKeys {
   static const deviceId = 'deviceId';
   static const loggedUser = 'loggedUser';

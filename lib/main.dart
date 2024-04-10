@@ -4,15 +4,13 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_project_skeleton/settings.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_project_skeleton/app.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/core/singletons/getter.dart';
-import 'package:flutter_project_skeleton/core/singletons/cached_data.dart';
 
 Future<void> setup({bool isTest = false}) async {
-  CachedData.load;
 
   LocaleSettings.useDeviceLocale();
   SystemChrome.setPreferredOrientations([
@@ -30,17 +28,18 @@ Future<void> setup({bool isTest = false}) async {
 }
 
 Future<void> run() async {
-  if (Get.settings.sentryDsn != null) {
+  final settings = injector.get<Settings>();
+  if (settings.sentryDsn != null) {
     await SentryFlutter.init(
       (options) {
-        options.dsn = Get.settings.sentryDsn;
+        options.dsn = settings.sentryDsn;
         options.tracesSampleRate = 1.0;
       },
       appRunner: () => runApp(const MyApp()),
     );
   } else {
     runApp(DevicePreview(
-      enabled: !kReleaseMode && Get.settings.environment == Environment.preview,
+      enabled: !kReleaseMode && settings.environment == Environment.preview,
       builder: (context) => const MyApp(),
     ));
   }
