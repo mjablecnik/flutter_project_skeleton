@@ -32,6 +32,4 @@ class ParseDataException extends ServerException {
 
 class AccessDeniedException extends ServerException {}
 
-class UnknownTerminalException extends ServerException {}
-
 class InternetConnectionException extends ServerException {}

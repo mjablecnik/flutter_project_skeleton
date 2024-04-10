@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
-import 'package:flutter_project_skeleton/data/entities/cat.dart';
-import 'package:flutter_project_skeleton/logic/cubits/cat_list_cubit.dart';
+import 'package:flutter_project_skeleton/data/entities/product.dart';
+import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/view/widgets/loader.dart';
 import 'package:flutter_project_skeleton/view/widgets/reloader.dart';
 
-class CatList extends StatefulWidget {
-  const CatList({super.key});
+class ProductList extends StatefulWidget {
+  const ProductList({super.key});
 
   @override
-  State<CatList> createState() => _CatListState();
+  State<ProductList> createState() => _ProductListState();
 }
 
-class _CatListState extends State<CatList> {
+class _ProductListState extends State<ProductList> {
   final scrollController = ScrollController();
 
   @override
@@ -24,20 +24,20 @@ class _CatListState extends State<CatList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CatListCubit, List<Cat>?>(
-      bloc: injector.get<CatListCubit>(),
-      builder: (context, tiles) {
-        if (tiles == null) {
+    return BlocBuilder<ProductListCubit, List<Product>?>(
+      bloc: injector.get<ProductListCubit>(),
+      builder: (context, products) {
+        if (products == null) {
           return const Loader();
         } else {
           return SingleChildScrollView(
             controller: scrollController,
             child: Reloader(
               scrollController: scrollController,
-              onReload: injector.get<CatListCubit>().reload,
+              onReload: injector.get<ProductListCubit>().reload,
               child: Column(
                 children: [
-                  for (var tile in tiles) ListTile(title: Text(tile.id)),
+                  for (var product in products) ListTile(title: Text(product.title)),
                 ],
               ),
             ),

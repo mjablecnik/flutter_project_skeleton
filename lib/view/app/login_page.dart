@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     if (isValid != true) return;
 
     final form = _formKey.currentState?.value;
-    AuthFlow.of(context).login(
+    AuthFlow.of(context).tokenAuthLogin(
       userName: form!['name'],
       password: form['password'],
       onSuccess: (user) => Navigator.of(context).pushReplacementNamed(Routes.home),

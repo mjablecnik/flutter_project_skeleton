@@ -12,14 +12,17 @@ class User with _$User {
   const factory User({
     required String firstName,
     required String lastName,
-    required String userName,
+    @JsonKey(name: "username") required String userName,
+    String? token,
   }) = _User;
 
-  const factory User.anonymous({
-    @Default("Anonymous") String firstName,
-    @Default("User") String lastName,
-    @Default("anonymous") String userName,
-  }) = AnonymousUser;
+  factory User.anonymous() {
+    return const User(
+      userName: "anonymous",
+      lastName: "User",
+      firstName: "Anonymous",
+    );
+  }
 
   String get fullName => "$firstName $lastName";
 

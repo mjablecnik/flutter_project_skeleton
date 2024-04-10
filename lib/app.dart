@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return TranslationProvider(
       child: Builder(builder: (context) {
         return AuthFlow(
-          user: ValueNotifier(injector.get<Settings>().disableAuth ? const User.anonymous() : null),
+          user: ValueNotifier(injector.get<Settings>().disableAuth ? User.anonymous() : null),
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
             child: MaterialApp(

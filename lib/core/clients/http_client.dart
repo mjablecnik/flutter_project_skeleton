@@ -46,15 +46,17 @@ class HttpClient {
 
   Future<T> createRequest<T>(
     Future<Response> Function() request,
-    Future<T> Function(dynamic data) parseData,
-  ) async {
+    Future<T> Function(dynamic data) parseData, {
+    Future<ServerException?> Function(int? status, dynamic data)? onServerError,
+  }) async {
     try {
       final response = await request.call();
       if (response.statusCode == 200 && response.data != null) {
         try {
           return await parseData(response.data);
-        } catch (error) {
-          logger.handle(error);
+        } on Error catch (error) {
+          logger.error(error);
+          logger.handle(error.stackTrace.toString());
           throw ParseDataException();
         }
       }
@@ -64,13 +66,17 @@ class HttpClient {
       if (!result) throw InternetConnectionException();
 
       if (e.response?.statusCode == 403) {
-        if (e.response?.data != null && e.response?.data!.containsKey('key')) {
-          if (e.response?.data!['key'] == "Unknown terminal %s") {
-            throw UnknownTerminalException();
-          }
-        }
         throw AccessDeniedException();
       } else {
+        if (onServerError != null && e.response != null) {
+          try {
+            final error = await onServerError.call(e.response?.statusCode, e.response?.data);
+            if (error != null) throw error;
+          } on Error catch (error) {
+            logger.error(error);
+            logger.handle(error.stackTrace.toString());
+          }
+        }
         throw ServerException(
           message: "DioException response status code: ${e.response?.statusCode}",
         );

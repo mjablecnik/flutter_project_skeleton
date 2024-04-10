@@ -25,7 +25,7 @@ class SecureStorage {
     return _storage.write(key: key, value: json.encode(value));
   }
 
-  Future<dynamic> getMap(String key) {
-    return json.decode(_storage.read(key: key).toString());
+  Future<dynamic> getMap(String key) async {
+    return json.decode((await _storage.read(key: key)).toString());
   }
 }

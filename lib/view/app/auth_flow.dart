@@ -22,7 +22,7 @@ class AuthFlow extends InheritedWidget {
     return result!;
   }
 
-  login({
+  basicAuthLogin({
     required String userName,
     required String password,
     Function(User)? onSuccess,
@@ -39,10 +39,38 @@ class AuthFlow extends InheritedWidget {
     }
   }
 
+  tokenAuthLogin({
+    required String userName,
+    required String password,
+    Function(User)? onSuccess,
+    Function(ServerException)? onFailure,
+  }) async {
+    try {
+      final restApiService = injector.get<RestApiService>();
+      final User user = await restApiService.login("kminchelle", "0lelplR");
+      if (user.token != null) restApiService.setAuthToken(user.token!);
+      this.user.value = user;
+      injector.get<StorageService>().saveLoggedUser(user);
+      onSuccess?.call(user);
+    } on ServerException catch (e) {
+      onFailure?.call(e);
+    }
+  }
+
   Future<User?> getLoggedUser() async {
-    final storageService = injector.get<StorageService>();
-    user.value ??= await storageService.getLoggedUser();
-    return user.value;
+    try {
+      final restApiService = injector.get<RestApiService>();
+      final storageService = injector.get<StorageService>();
+      final User? user = await storageService.getLoggedUser();
+      if (user?.token != null) {
+        restApiService.setAuthToken(user!.token!);
+        this.user.value = await restApiService.getLoggedUser();
+        return this.user.value;
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
   }
 
   bool logout() {
@@ -50,7 +78,7 @@ class AuthFlow extends InheritedWidget {
     final storageService = injector.get<StorageService>();
     final restApiService = injector.get<RestApiService>();
     storageService.saveLoggedUser(null);
-    return restApiService.removeBasicAuth();
+    return restApiService.removeAuth();
   }
 
   @override

@@ -45,7 +45,7 @@ class Settings {
         environment = Environment.test;
         sentryDsn = null;
       default:
-        apiUrl = "https://api.thecatapi.com";
+        apiUrl = "https://dummyjson.com";
         apiKey = "";
         environment = Environment.devel;
         sentryDsn = null;
