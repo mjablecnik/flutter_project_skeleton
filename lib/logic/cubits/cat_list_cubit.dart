@@ -14,9 +14,9 @@ class CatListCubit extends Cubit<List<Cat>?> {
     emit(state);
   }
 
-  init() => load();
+  init() => reload();
 
-  Future<void> load() async {
+  Future<void> reload() async {
     try {
       update(await _restApiService.getCats());
     } catch (e) {
