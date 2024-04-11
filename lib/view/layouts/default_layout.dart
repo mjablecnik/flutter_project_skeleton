@@ -10,12 +10,14 @@ class DefaultLayout extends StatelessWidget {
     required this.body,
     this.actions,
     this.drawer = const MainDrawer(),
+    this.padding = EdgeInsets.zero,
     this.onBack,
   });
 
   final String title;
   final Widget body;
   final Widget? drawer;
+  final EdgeInsetsGeometry padding;
   final List<Widget>? actions;
   final Function()? onBack;
 
@@ -32,7 +34,10 @@ class DefaultLayout extends StatelessWidget {
             actions: actions,
           ),
           drawer: !Navigator.of(context).canPop() ? drawer : null,
-          body: body,
+          body: Padding(
+            padding: padding,
+            child: body,
+          ),
         ),
       ),
     );

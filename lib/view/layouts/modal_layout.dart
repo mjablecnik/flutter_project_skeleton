@@ -23,17 +23,11 @@ class ModalLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: Colors.green,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
         padding: padding,
-        child: ListView(
-          physics: isScrollable ? const ScrollPhysics() : const NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          children: [
-            body,
-          ],
-        ),
+        child: body,
       ),
     );
   }

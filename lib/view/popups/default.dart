@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/view/pages/error_page.dart';
 import 'package:vader_popup/vader_popup.dart';
 
 class Popup {
@@ -15,5 +17,22 @@ class Popup {
     );
 
     return result ?? false;
+  }
+
+  static Future<T?> showErrorPage<T>({
+    required BuildContext context,
+    required String title,
+    required String message,
+    String? errorDetails,
+  }) {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ErrorPage(
+          title: title,
+          description: message,
+          errorDetails: errorDetails,
+        ),
+      ),
+    );
   }
 }
