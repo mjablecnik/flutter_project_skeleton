@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_project_skeleton/core/app/global.dart';
+import 'package:flutter_project_skeleton/core/app/logger.dart';
 import 'package:flutter_project_skeleton/core/clients/http_client.dart';
 import 'package:flutter_project_skeleton/data/entities/product.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
@@ -20,7 +20,7 @@ class RestApiService {
       callback.call();
       return true;
     } catch (e) {
-      logger.error(e);
+      logger.handle(e);
       return false;
     }
   }

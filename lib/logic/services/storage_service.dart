@@ -1,4 +1,5 @@
 import 'package:flutter_project_skeleton/core/app/global.dart';
+import 'package:flutter_project_skeleton/core/app/logger.dart';
 import 'package:flutter_project_skeleton/core/clients/secure_storage.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 

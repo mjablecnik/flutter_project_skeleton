@@ -11,7 +11,6 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 
 Future<void> setup({bool isTest = false}) async {
-
   LocaleSettings.useDeviceLocale();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -35,7 +34,12 @@ Future<void> run() async {
         options.dsn = settings.sentryDsn;
         options.tracesSampleRate = 1.0;
       },
-      appRunner: () => runApp(const MyApp()),
+      appRunner: () => runApp(
+        DefaultAssetBundle(
+          bundle: SentryAssetBundle(),
+          child: const MyApp(),
+        ),
+      ),
     );
   } else {
     runApp(DevicePreview(

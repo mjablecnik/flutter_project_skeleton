@@ -38,9 +38,9 @@ dependencies:
   slang_flutter: 3.30.0
   auto_injector: 2.0.4
   device_preview: 1.1.0
-  sentry_flutter: 7.18.0
-  talker_flutter: 4.1.0
-  talker_dio_logger: 4.1.0
+  sentry_flutter: 7.19.0
+  talker_flutter: 4.1.2
+  talker_dio_logger: 4.1.2
   flutter_form_builder: 9.2.1
   form_builder_validators: 9.1.0
   flutter_keyboard_visibility: 6.0.0

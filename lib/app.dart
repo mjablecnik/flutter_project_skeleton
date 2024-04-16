@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_project_skeleton/view/app/home_page.dart';
 import 'package:flutter_project_skeleton/view/pages/info_page.dart';
 import 'package:flutter_project_skeleton/view/app/login_page.dart';
 import 'package:flutter_project_skeleton/view/app/logo_page.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,6 +32,9 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             initialRoute: Routes.logo,
+            navigatorObservers: [
+              SentryNavigatorObserver(),
+            ],
             routes: {
               Routes.logo: (context) => const LogoPage(),
               Routes.login: (context) => const LoginPage(),

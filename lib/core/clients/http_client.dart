@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_project_skeleton/core/app/exceptions.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
+import 'package:flutter_project_skeleton/core/app/logger.dart';
 import 'package:flutter_project_skeleton/settings.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
@@ -26,6 +27,7 @@ class HttpClient {
     if (settings.logs.enableHttpLogs) {
       dio.interceptors.add(
         TalkerDioLogger(
+          talker: logger,
           settings: TalkerDioLoggerSettings(
             printRequestHeaders: true,
             printRequestData: true,
