@@ -30,11 +30,10 @@ class _ProductListState extends State<ProductList> {
         if (products == null) {
           return const Loader();
         } else {
-          return SingleChildScrollView(
-            controller: scrollController,
-            child: Reloader(
-              scrollController: scrollController,
-              onReload: injector.get<ProductListCubit>().reload,
+          return RefreshIndicator(
+            onRefresh: injector.get<ProductListCubit>().reload,
+            child: SingleChildScrollView(
+              controller: scrollController,
               child: Column(
                 children: [
                   for (var product in products) ListTile(title: Text(product.title)),
