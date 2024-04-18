@@ -56,8 +56,6 @@ dependencies:
   json_serializable: 6.7.1
   json_annotation: 4.8.1
   mek_data_class: 1.4.0
-  result_dart:
-    git: git@github.com:FlutterPackages/result_dart.git
 
   flutter_offline: 3.0.1
   device_info_plus: 9.1.2
