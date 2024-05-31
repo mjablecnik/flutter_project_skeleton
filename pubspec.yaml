@@ -33,16 +33,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  dio: 5.4.2
-  slang: 3.30.2
-  slang_flutter: 3.30.0
+  dio: 5.4.3+1
+  slang: 3.31.0
+  slang_flutter: 3.31.0
   auto_injector: 2.0.4
-  device_preview: 1.1.0
   sentry_flutter: 7.19.0
   talker_flutter: 4.1.2
   talker_dio_logger: 4.1.2
-  flutter_form_builder: 9.2.1
-  form_builder_validators: 9.1.0
+  flutter_form_builder: 9.3.0
+  form_builder_validators: 10.0.1
   flutter_keyboard_visibility: 6.0.0
   internet_connection_checker: 1.0.0+1
 
@@ -52,7 +51,7 @@ dependencies:
   crypto: 3.0.3
   freezed: 2.4.7
   freezed_annotation: 2.4.1
-  flutter_secure_storage: 9.0.0
+  flutter_secure_storage: 9.2.2
   json_serializable: 6.7.1
   json_annotation: 4.8.1
   mek_data_class: 1.4.0
@@ -63,8 +62,7 @@ dependencies:
   mobile_device_identifier: 0.0.2
   android_device_id_generator: 0.1.1
 
-  vader_popup:
-    git: https://github.com/mjablecnik/vader_popup.git
+  vader_popup: 0.1.0
   url_launcher: 6.2.5
 
   # The following adds the Cupertino Icons font to your application.

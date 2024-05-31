@@ -1,7 +1,5 @@
 import 'dart:io';
 
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/settings.dart';
@@ -42,10 +40,7 @@ Future<void> run() async {
       ),
     );
   } else {
-    runApp(DevicePreview(
-      enabled: !kReleaseMode && settings.environment == Environment.preview,
-      builder: (context) => const MyApp(),
-    ));
+    runApp(const MyApp());
   }
 }
 
