@@ -25,12 +25,3 @@ class CustomTalkerObserver extends TalkerObserver {
     await Sentry.captureMessage(log.message);
   }
 }
-
-final logger = TalkerFlutter.init(
-  observer: const CustomTalkerObserver(),
-  settings: TalkerSettings(
-    useHistory: false,
-    useConsoleLogs: true,
-    enabled: true,
-  ),
-);
