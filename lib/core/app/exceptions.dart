@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/view/popups/default.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:vader_popup/vader_popup.dart';
 
 class ServerException implements Exception {
   final String? message;

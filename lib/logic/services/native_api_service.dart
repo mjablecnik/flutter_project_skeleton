@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
-import 'package:flutter_project_skeleton/core/app/logger.dart';
 
 class NativeApiService {
   const NativeApiService() : _methodChannel = const MethodChannel(Constants.methodChannel);

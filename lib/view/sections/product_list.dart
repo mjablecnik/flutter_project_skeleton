@@ -4,7 +4,6 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/data/entities/product.dart';
 import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/view/widgets/loader.dart';
-import 'package:flutter_project_skeleton/view/widgets/reloader.dart';
 
 class ProductList extends StatefulWidget {
   const ProductList({super.key});
