@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/settings.dart';
+import 'package:flutter_project_skeleton/view/widgets/app_theme.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_project_skeleton/app.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
@@ -24,6 +25,14 @@ Future<void> setup({bool isTest = false}) async {
   }
 }
 
+Widget app() {
+  return TranslationProvider(
+    child: ThemeProvider(
+      child: const MyApp(),
+    ),
+  );
+}
+
 Future<void> run() async {
   final settings = injector.get<Settings>();
   if (settings.sentryDsn != null) {
@@ -35,12 +44,12 @@ Future<void> run() async {
       appRunner: () => runApp(
         DefaultAssetBundle(
           bundle: SentryAssetBundle(),
-          child: const MyApp(),
+          child: app(),
         ),
       ),
     );
   } else {
-    runApp(const MyApp());
+    runApp(app());
   }
 }
 

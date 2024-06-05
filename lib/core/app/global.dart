@@ -21,7 +21,7 @@ class StoreKeys {
   static const loggedUser = 'loggedUser';
 }
 
-enum StorageKey { deviceId, loggedUser }
+enum StorageKey { deviceId, loggedUser, theme }
 
 class Constants {
   static const methodChannel = 'flutter.app.channel';

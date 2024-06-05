@@ -42,6 +42,7 @@ dependencies:
   talker_dio_logger: 4.1.2
   flutter_form_builder: 9.3.0
   form_builder_validators: 10.0.1
+  theme_tailor_annotation: 3.0.1
   flutter_keyboard_visibility: 6.0.0
   internet_connection_checker: 1.0.0+1
 
@@ -79,6 +80,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   bloc_test: 9.1.7
+  theme_tailor: 3.0.1
   build_runner: 2.4.8
   flutter_lints: 3.0.2
   package_rename: 1.5.3
