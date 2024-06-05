@@ -47,4 +47,5 @@ app.*.map.json
 **/*.g.dart
 **/*.freezed.dart
 
-.fvm/flutter_sdk
+# FVM Version Cache
+.fvm/
