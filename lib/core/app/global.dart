@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
 import 'package:flutter_project_skeleton/core/app/logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -38,3 +39,19 @@ class Routes {
 enum Environment { mock, test, devel, preview, production }
 
 enum DialogType { info, error, warning, success }
+
+class App {
+  late final GlobalKey<NavigatorState> navigatorKey;
+
+  NavigatorState? get navigator => navigatorKey.currentState;
+
+  BuildContext? get context => navigatorKey.currentContext;
+
+  // get theme => AppTheme.get.theme;
+
+  static final App get = App._initialize();
+
+  App._initialize() {
+    navigatorKey = GlobalKey<NavigatorState>();
+  }
+}

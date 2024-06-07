@@ -70,6 +70,8 @@ dependencies:
   crypto: 3.0.3
   vader_popup: 0.1.0
   url_launcher: 6.2.5
+  awesome_notifications: 0.9.3+1
+  awesome_notifications_core: 0.9.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

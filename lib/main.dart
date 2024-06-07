@@ -7,14 +7,38 @@ import 'package:flutter_project_skeleton/view/widgets/app_theme.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_project_skeleton/app.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 
-Future<void> setup({bool isTest = false}) async {
-  LocaleSettings.useDeviceLocale();
+void setupNotifications() {
+  AwesomeNotifications().initialize(
+    //'resource://mipmap-mdpi/launcher_icon',
+    null,
+    [
+      NotificationChannel(
+        channelGroupKey: 'basic_channel_group',
+        channelKey: 'basic_channel',
+        channelName: 'Basic notifications',
+        channelDescription: 'Notification channel for basic tests',
+        defaultColor: const Color(0xFF9D50DD),
+        ledColor: Colors.white,
+      )
+    ],
+    // Channel groups are only visual and are not required
+    channelGroups: [
+      NotificationChannelGroup(
+        channelGroupKey: 'basic_channel_group',
+        channelGroupName: 'Basic group',
+      )
+    ],
+    debug: false,
+  );
+}
+
+void setupSystemStyle() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-
   if (Platform.isAndroid) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
@@ -25,15 +49,21 @@ Future<void> setup({bool isTest = false}) async {
   }
 }
 
-Widget app() {
-  return TranslationProvider(
-    child: ThemeProvider(
-      child: const MyApp(),
-    ),
-  );
+Future<void> setup({bool isTest = false}) async {
+  LocaleSettings.useDeviceLocale();
+  setupSystemStyle();
+  setupNotifications();
 }
 
 Future<void> run() async {
+  Widget app() {
+    return TranslationProvider(
+      child: ThemeProvider(
+        child: const MyApp(),
+      ),
+    );
+  }
+
   final settings = injector.get<Settings>();
   if (settings.sentryDsn != null) {
     await SentryFlutter.init(
