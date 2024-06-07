@@ -15,7 +15,7 @@ For setup follow these [instructions](DOCS.md).
 
  - [Dart](https://dart.dev/): Client-optimized language for fast apps on any platform.
  - [Flutter](https://flutter.dev/): UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.
- - [Riverpod](https://riverpod.dev/): State manager for Flutter.
+ - [Bloc](https://bloclibrary.dev/): Flutter state management.
 
 
 ## Screenshots
@@ -43,6 +43,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 * Website: [martin-jablecnik.cz](https://www.martin-jablecnik.cz)
 * Github: [@mjablecnik](https://github.com/mjablecnik)
+* Blog: [dev.to/mjablecnik](https://dev.to/mjablecnik)
 
 
 ## Show your support
@@ -56,7 +57,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2021 [Martin Jablečník](https://github.com/mjablecnik).<br />
+Copyright © 2024 [Martin Jablečník](https://github.com/mjablecnik).<br />
 This project is [GNU License](https://choosealicense.com/licenses/mit/) licensed.
 
 
