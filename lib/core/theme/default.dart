@@ -8,12 +8,25 @@ class DefaultTheme extends ThemeExtension<DefaultTheme> with _$DefaultThemeTailo
   const DefaultTheme({
     required this.background,
     required this.appBarColor,
+    required this.loginPage,
   });
 
   @override
   final Color background;
   @override
   final Color appBarColor;
+
+  @override
+  @themeExtension
+  final LoginPageTheme loginPage;
+}
+
+@tailorMixinComponent
+class LoginPageTheme extends ThemeExtension<LoginPageTheme> with _$LoginPageThemeTailorMixin {
+  const LoginPageTheme({required this.loginButton});
+
+  @override
+  final Color loginButton;
 }
 
 class ThemeModes {
@@ -23,6 +36,9 @@ class ThemeModes {
       DefaultTheme(
         background: Colors.white,
         appBarColor: Colors.deepOrange,
+        loginPage: LoginPageTheme(
+          loginButton: Colors.yellow,
+        ),
       )
     ],
   );
@@ -32,6 +48,9 @@ class ThemeModes {
       DefaultTheme(
         background: Colors.black,
         appBarColor: Colors.green,
+        loginPage: LoginPageTheme(
+          loginButton: Colors.pink,
+        ),
       )
     ],
   );
