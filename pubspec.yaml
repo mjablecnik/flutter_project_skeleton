@@ -33,6 +33,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
+  # core plugins:
   dio: 5.4.3+1
   slang: 3.31.0
   slang_flutter: 3.31.0
@@ -41,28 +42,32 @@ dependencies:
   talker_flutter: 4.1.2
   talker_dio_logger: 4.1.2
   flutter_form_builder: 9.3.0
+  flutter_secure_storage: 9.2.2
   form_builder_validators: 10.0.1
   theme_tailor_annotation: 3.0.1
   flutter_keyboard_visibility: 6.0.0
-  internet_connection_checker: 1.0.0+1
 
+  # state management:
   bloc: 8.1.4
   flutter_bloc: 8.1.5
 
-  crypto: 3.0.3
+  # data serialization:
   freezed: 2.4.7
   freezed_annotation: 2.4.1
-  flutter_secure_storage: 9.2.2
   json_serializable: 6.7.1
   json_annotation: 4.8.1
   mek_data_class: 1.4.0
 
+  # device plugins:
   flutter_offline: 3.0.1
   device_info_plus: 9.1.2
   package_info_plus: 5.0.1
   mobile_device_identifier: 0.0.2
   android_device_id_generator: 0.1.1
+  internet_connection_checker: 1.0.0+1
 
+  # others:
+  crypto: 3.0.3
   vader_popup: 0.1.0
   url_launcher: 6.2.5
 
