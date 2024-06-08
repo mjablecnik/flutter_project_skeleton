@@ -22,5 +22,5 @@ class Utils {
     return sha1.convert(utf8.encode(text)).toString();
   }
 
-  static bool keyboardIsOpen(BuildContext context) => MediaQuery.of(context).viewInsets.bottom == 0;
+  static bool isKeyboardOpen(BuildContext context) => MediaQuery.of(context).viewInsets.bottom == 0;
 }
