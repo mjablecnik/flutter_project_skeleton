@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 
-class ConnectionChecker extends StatelessWidget {
-  const ConnectionChecker({
+class ConnectivityHandler extends StatelessWidget {
+  const ConnectivityHandler({
     super.key,
     required this.child,
   });

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/theme/default.dart';
 import 'package:flutter_project_skeleton/view/widgets/app_theme.dart';
-import 'package:flutter_project_skeleton/view/widgets/notification_handler.dart';
+import 'package:flutter_project_skeleton/view/handlers/notification_handler.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';

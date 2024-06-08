@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/view/components/main_drawer.dart';
-import 'package:flutter_project_skeleton/view/widgets/back_button_handler.dart';
-import 'package:flutter_project_skeleton/view/widgets/connection_checker.dart';
+import 'package:flutter_project_skeleton/view/handlers/back_button_handler.dart';
+import 'package:flutter_project_skeleton/view/handlers/connectivity_handler.dart';
 
 class DefaultLayout extends StatelessWidget {
   const DefaultLayout({
@@ -23,7 +23,7 @@ class DefaultLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConnectionChecker(
+    return ConnectivityHandler(
       child: BackButtonHandler(
         onBack: onBack,
         child: Scaffold(

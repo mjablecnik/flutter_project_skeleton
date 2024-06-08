@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
                       color: Theme.of(context).colorScheme.primary,
-                      textColor: Theme.of(context).colorScheme.background,
+                      textColor: Theme.of(context).colorScheme.surface,
                       onPressed: submit,
                       child: Text(context.t.login.submit),
                     ),
