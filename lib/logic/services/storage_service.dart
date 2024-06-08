@@ -1,11 +1,10 @@
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/clients/secure_storage.dart';
-import 'package:flutter_project_skeleton/core/theme/theme.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
 
 class StorageService {
-  StorageService() {
-    _storage = SecureStorage();
+  StorageService({required SecureStorage storage}) {
+    _storage = storage;
   }
 
   late final SecureStorage _storage;
@@ -25,18 +24,6 @@ class StorageService {
     } else {
       return _storage.remove(StorageKey.loggedUser.name);
     }
-  }
-
-  Future<Theme?> getTheme() async {
-    try {
-      return Theme.fromJson(await _storage.getMap(StorageKey.theme.name));
-    } catch (e) {
-      return null;
-    }
-  }
-
-  Future<void> saveTheme(Theme theme) {
-    return _storage.saveMap(StorageKey.theme.name, theme.toJson());
   }
 
   Future<void> saveDeviceId(String deviceId) {

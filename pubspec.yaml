@@ -44,6 +44,7 @@ dependencies:
   flutter_form_builder: 9.3.0
   flutter_secure_storage: 9.2.2
   form_builder_validators: 10.0.1
+  theme_mode_handler: 3.0.0
   theme_tailor_annotation: 3.0.1
   flutter_keyboard_visibility: 6.0.0
 

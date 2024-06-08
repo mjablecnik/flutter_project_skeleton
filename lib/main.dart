@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/settings.dart';
-import 'package:flutter_project_skeleton/view/widgets/app_theme.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_project_skeleton/app.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
@@ -58,9 +57,7 @@ Future<void> setup({bool isTest = false}) async {
 Future<void> run() async {
   Widget app() {
     return TranslationProvider(
-      child: ThemeProvider(
-        child: const MyApp(),
-      ),
+      child: const MyApp(),
     );
   }
 

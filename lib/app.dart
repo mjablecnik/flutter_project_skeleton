@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/theme/default.dart';
-import 'package:flutter_project_skeleton/view/widgets/app_theme.dart';
+import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/view/handlers/notification_handler.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -11,16 +11,16 @@ import 'package:flutter_project_skeleton/view/app/home_page.dart';
 import 'package:flutter_project_skeleton/view/pages/info_page.dart';
 import 'package:flutter_project_skeleton/view/app/login_page.dart';
 import 'package:flutter_project_skeleton/view/app/logo_page.dart';
-import 'package:flutter_project_skeleton/core/theme/theme.dart' as app;
+import 'package:theme_mode_handler/theme_mode_handler.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<app.Theme>(
-      valueListenable: ThemeProvider.of(context).theme,
-      builder: (context, theme, __) {
+    return ThemeModeHandler(
+      manager: injector.get<ThemeService>(),
+      builder: (ThemeMode themeMode) {
         return NotificationHandler(
           child: GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: ThemeModes.light,
               darkTheme: ThemeModes.dark,
-              themeMode: theme.mode,
+              themeMode: themeMode,
               initialRoute: Routes.logo,
               navigatorKey: App.get.navigatorKey,
               navigatorObservers: [

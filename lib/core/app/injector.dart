@@ -10,6 +10,7 @@ import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/logic/services/native_api_service.dart';
 import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
 import 'package:flutter_project_skeleton/logic/services/storage_service.dart';
+import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/settings.dart';
 
 @protected
@@ -30,6 +31,7 @@ class Injector {
     _injector.addSingleton(NativeApiService.new);
     _injector.addSingleton(RestApiService.new);
     _injector.addSingleton(StorageService.new);
+    _injector.addSingleton(ThemeService.new);
 
     _injector.addLazySingleton(AuthCubit.new);
     _injector.addLazySingleton(ProductListCubit.new);
