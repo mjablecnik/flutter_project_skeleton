@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/core/theme/app.dart';
 import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -24,11 +25,11 @@ class _LoginPageState extends State<LoginPage> {
 
     final form = _formKey.currentState?.value;
     injector.get<AuthCubit>().tokenAuthLogin(
-      userName: form!['name'],
-      password: form['password'],
-      onSuccess: (user) => Navigator.of(context).pushReplacementNamed(Routes.home),
-      onFailure: (e) => e.showPopup(context),
-    );
+          userName: form!['name'],
+          password: form['password'],
+          onSuccess: (user) => Navigator.of(context).pushReplacementNamed(Routes.home),
+          onFailure: (e) => e.showPopup(context),
+        );
   }
 
   @override
@@ -60,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               Text(
                 context.t.login.title,
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: context.appTheme.loginPage.titleText,
               ),
               const SizedBox(height: 20),
               FormBuilder(
@@ -94,10 +95,13 @@ class _LoginPageState extends State<LoginPage> {
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
-                      color: Theme.of(context).colorScheme.primary,
-                      textColor: Theme.of(context).colorScheme.surface,
+                      color: context.appTheme.loginPage.button.backgroundColor,
+                      textColor: context.appTheme.loginPage.button.textColor,
                       onPressed: submit,
-                      child: Text(context.t.login.submit),
+                      child: Text(
+                        context.t.login.submit,
+                        style: context.appTheme.loginPage.button.textStyle,
+                      ),
                     ),
                   ],
                 ),

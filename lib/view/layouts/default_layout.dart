@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/theme/app.dart';
 import 'package:flutter_project_skeleton/view/components/main_drawer.dart';
 import 'package:flutter_project_skeleton/view/handlers/back_button_handler.dart';
 import 'package:flutter_project_skeleton/view/handlers/connectivity_handler.dart';
@@ -27,9 +28,10 @@ class DefaultLayout extends StatelessWidget {
       child: BackButtonHandler(
         onBack: onBack,
         child: Scaffold(
+          backgroundColor: context.appTheme.layout.backgroundColor,
           appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: Text(title),
+            backgroundColor: context.appTheme.layout.appBarColor,
+            title: Text(title, style: context.appTheme.layout.appBarText),
             titleSpacing: 0,
             actions: actions,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
+import 'package:flutter_project_skeleton/core/theme/app.dart';
 import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
 
 class ErrorPage extends StatefulWidget {
@@ -30,20 +31,9 @@ class _ErrorPageState extends State<ErrorPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
-          Text(
-            widget.title,
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(widget.title, style: context.appTheme.errorPage.titleText),
           const SizedBox(height: 16),
-          Text(
-            widget.description,
-            style: const TextStyle(
-              fontSize: 14,
-            ),
-          ),
+          Text(widget.description, style: context.appTheme.errorPage.descriptionText),
           if (widget.errorDetails != null)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,10 +42,11 @@ class _ErrorPageState extends State<ErrorPage> {
                 ExpansionPanelList(
                   elevation: 0,
                   expandedHeaderPadding: EdgeInsets.zero,
-                  expandIconColor: Colors.green,
+                  expandIconColor: context.appTheme.errorPage.detailTextButtonIcon,
                   animationDuration: const Duration(milliseconds: 300),
                   children: [
                     ExpansionPanel(
+                      backgroundColor: context.appTheme.layout.backgroundColor,
                       canTapOnHeader: true,
                       isExpanded: showDetails,
                       headerBuilder: (BuildContext context, bool isExpanded) {
@@ -65,13 +56,7 @@ class _ErrorPageState extends State<ErrorPage> {
                           child: Text(
                             context.t.app.errorPage.showMoreInfo,
                             textAlign: TextAlign.left,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.green,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.green,
-                            ),
+                            style: context.appTheme.errorPage.detailTextButton,
                           ),
                         );
                       },
@@ -82,10 +67,7 @@ class _ErrorPageState extends State<ErrorPage> {
                           child: Text(
                             widget.errorDetails!,
                             textAlign: TextAlign.left,
-                            style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                            ),
+                            style: context.appTheme.errorPage.detailText,
                           ),
                         ),
                       ),

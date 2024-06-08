@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/theme/app.dart';
 
 class ModalLayout extends StatelessWidget {
   const ModalLayout({
@@ -23,7 +24,7 @@ class ModalLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: context.appTheme.layout.backgroundColor,
       ),
       body: Padding(
         padding: padding,

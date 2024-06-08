@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_skeleton/core/theme/default.dart';
+import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/view/handlers/notification_handler.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
               supportedLocales: AppLocaleUtils.supportedLocales,
               localizationsDelegates: GlobalMaterialLocalizations.delegates,
               debugShowCheckedModeBanner: false,
-              theme: ThemeModes.light,
-              darkTheme: ThemeModes.dark,
+              theme: themeModes.light,
+              darkTheme: themeModes.dark,
               themeMode: themeMode,
               initialRoute: Routes.logo,
               navigatorKey: App.get.navigatorKey,
