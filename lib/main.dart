@@ -48,19 +48,7 @@ void setupSystemStyle() {
   }
 }
 
-Future<void> setup({bool isTest = false}) async {
-  LocaleSettings.useDeviceLocale();
-  setupSystemStyle();
-  setupNotifications();
-}
-
-Future<void> run() async {
-  Widget app() {
-    return TranslationProvider(
-      child: const MyApp(),
-    );
-  }
-
+setupSentry(Widget child) async {
   final settings = injector.get<Settings>();
   if (settings.sentryDsn != null) {
     await SentryFlutter.init(
@@ -71,17 +59,29 @@ Future<void> run() async {
       appRunner: () => runApp(
         DefaultAssetBundle(
           bundle: SentryAssetBundle(),
-          child: app(),
+          child: child,
         ),
       ),
     );
   } else {
-    runApp(app());
+    runApp(child);
   }
+}
+
+Widget app() {
+  return TranslationProvider(
+    child: const MyApp(),
+  );
+}
+
+Future<void> setup({bool isTest = false}) async {
+  LocaleSettings.useDeviceLocale();
+  setupSystemStyle();
+  setupNotifications();
+  setupSentry(app());
 }
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setup(isTest: false);
-  run();
 }
