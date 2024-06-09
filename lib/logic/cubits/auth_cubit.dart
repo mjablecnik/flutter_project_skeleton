@@ -44,7 +44,7 @@ class AuthCubit extends Cubit<User?> {
     Function(ServerException)? onFailure,
   }) async {
     try {
-      final User user = await _restApiService.login("kminchelle", "0lelplR");
+      final User user = await _restApiService.login('emilys', 'emilyspass');
       if (user.token != null) _restApiService.setAuthToken(user.token!);
       update(user);
       _storageService.saveLoggedUser(user);
