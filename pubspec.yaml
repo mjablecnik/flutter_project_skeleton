@@ -87,6 +87,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  alchemist: 0.7.0
   bloc_test: 9.1.7
   theme_tailor: 3.0.1
   build_runner: 2.4.8
