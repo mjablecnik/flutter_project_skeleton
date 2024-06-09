@@ -42,3 +42,19 @@ Tests doesn't here yet.
   5) Push tag of new version to server: git push origin v1.x.x
   6) Make release: fvm flutter build apk --dart-define="FLAVOR=production"                
   ```
+
+## Setup push notifications
+For create local notifications you can use this code:
+```dart
+AwesomeNotifications().createNotification(
+  content: NotificationContent(
+      id: 10,
+      channelKey: 'basic_channel',
+      actionType: ActionType.Default
+      title: 'Hello World!',
+      body: 'This is my first notification!',
+  )
+);
+```
+
+For push notifications using FCM (Firebase Cloud Messaging) you must setup [awesome_notifications_fcm](https://pub.dev/packages/awesome_notifications_fcm).
