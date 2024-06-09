@@ -10,51 +10,53 @@ class StorybookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TranslationProvider(
-      child: Storybook(
-        wrapperBuilder: (context, child) => MaterialApp(
-          locale: TranslationProvider.of(context).flutterLocale,
-          supportedLocales: AppLocaleUtils.supportedLocales,
-          localizationsDelegates: GlobalMaterialLocalizations.delegates,
-          debugShowCheckedModeBanner: false,
-          theme: themeModes.light,
-          darkTheme: themeModes.dark,
-          home: Scaffold(
-            body: Center(
-              child: child,
-            ),
-          ),
-        ),
-        plugins: initializePlugins(
-          //enableContents: true,
-          //enableKnobs: true,
-          enableThemeMode: true,
-          enableDeviceFrame: true,
-          //contentsSidePanel: false,
-          //knobsSidePanel: false,
-        ),
-        stories: [
-          Story(
-            name: 'Pages/ErrorPage',
-            description: 'Page for show errors.',
-            builder: (context) => ErrorPage(
-              title: context.knobs.text(
-                label: 'Title',
-                initial: 'Error',
-              ),
-              description: context.knobs.text(
-                label: 'Description',
-                initial: 'Nastala nějaká chyba',
+    return Storybook(
+      wrapperBuilder: (context, child) => TranslationProvider(
+        child: Builder(builder: (context) {
+          return MaterialApp(
+            locale: TranslationProvider.of(context).flutterLocale,
+            supportedLocales: AppLocaleUtils.supportedLocales,
+            localizationsDelegates: GlobalMaterialLocalizations.delegates,
+            debugShowCheckedModeBanner: false,
+            theme: themeModes.light,
+            darkTheme: themeModes.dark,
+            home: Scaffold(
+              body: Center(
+                child: child,
               ),
             ),
-          ),
-          Story(
-            name: 'Widgets/Text',
-            description: 'Simple text widget.',
-            builder: (context) => const Center(child: Text('Simple text')),
-          ),
-        ],
+          );
+        }),
       ),
+      plugins: initializePlugins(
+        enableContents: true,
+        enableKnobs: true,
+        enableThemeMode: true,
+        enableDeviceFrame: true,
+        contentsSidePanel: false,
+        knobsSidePanel: false,
+      ),
+      stories: [
+        Story(
+          name: 'Pages/ErrorPage',
+          description: 'Page for show errors.',
+          builder: (context) => ErrorPage(
+            title: context.knobs.text(
+              label: 'Title',
+              initial: 'Error',
+            ),
+            description: context.knobs.text(
+              label: 'Description',
+              initial: 'Nastala nějaká chyba',
+            ),
+          ),
+        ),
+        Story(
+          name: 'Widgets/Text',
+          description: 'Simple text widget.',
+          builder: (context) => const Center(child: Text('Simple text')),
+        ),
+      ],
     );
   }
 }

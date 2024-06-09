@@ -94,7 +94,7 @@ dev_dependencies:
   package_rename: 1.5.3
   flutter_launcher_icons: 0.13.1
   mek_data_class_generator: 1.5.1
-  storybook_flutter: 0.14.1
+  storybook_flutter: 0.13.0
 
 # For rename application
 # Run command: `dart run package_rename`
