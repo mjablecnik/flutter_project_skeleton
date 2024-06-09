@@ -1,5 +1,5 @@
 ## Supported Flutter version
-3.19.1
+3.22.0
 
 ## Installation
 
@@ -41,6 +41,8 @@ Tests doesn't here yet.
   4) Create tag of new version: git tag v1.x.x master
   5) Push tag of new version to server: git push origin v1.x.x
   6) Make release: fvm flutter build apk --dart-define="FLAVOR=production"                
+  6) Make release: fvm flutter build appBundle --dart-define="FLAVOR=production"                
+  6) Make iOS release: fvm flutter build ipa --dart-define="FLAVOR=production"                
   ```
 
 ## Setup push notifications
