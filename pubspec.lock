@@ -1218,6 +1218,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.0"
+  storybook_flutter_test:
+    dependency: "direct dev"
+    description:
+      name: storybook_flutter_test
+      sha256: "39c2c748961207fb3d4e4fcbd447e4e19ed3a10b4fbd6604df0b0394c1fc7975"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   stream_channel:
     dependency: transitive
     description:

@@ -1,8 +1,8 @@
 import 'package:alchemist/alchemist.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/view/layouts/test_layout.dart';
 
 import 'device.dart';
-import 'golden_test_layout.dart';
 
 /// Wrapper for testing widgets (primarily screens) with device constraints
 class GoldenTestDeviceScenario extends StatelessWidget {
@@ -28,12 +28,12 @@ class GoldenTestDeviceScenario extends StatelessWidget {
             padding: device.safeArea,
             platformBrightness: device.brightness,
             devicePixelRatio: device.devicePixelRatio,
-            textScaleFactor: device.textScaleFactor,
+            textScaler: TextScaler.linear(device.textScaleFactor),
           ),
           child: SizedBox(
             height: device.size.height,
             width: device.size.width,
-            child: GoldenTestLayout(
+            child: TestLayout(
               child: builder(),
             ),
           ),
