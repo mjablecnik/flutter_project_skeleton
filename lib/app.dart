@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
                 Routes.logo: (context) => const LogoPage(),
                 Routes.login: (context) => const LoginPage(),
                 Routes.info: (context) => const InfoPage(),
-                Routes.home: (context) => const HomePage(),
+                Routes.home: (context) => HomePage(injector: injector),
                 Routes.dialogTester: (context) => const DialogTester(),
               },
               builder: (context, child) {
