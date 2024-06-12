@@ -7,11 +7,6 @@ import 'package:alchemist/alchemist.dart';
 import 'package:flutter_project_skeleton/view/pages/error_page.dart';
 
 void main() {
-  Widget buildWidgetUnderTest() => const ErrorPage(
-        title: "Internet error",
-        description: "Bohužel se nám nepodařilo navázat internetové spojení.",
-      );
-
   // final s = storybook();
   // for (var story in s.stories) {
   //   goldenTest(
@@ -35,6 +30,11 @@ void main() {
   //     ),
   //   );
   // }
+
+  Widget buildWidgetUnderTest() => const ErrorPage(
+    title: "Internet error",
+    description: "Bohužel se nám nepodařilo navázat internetové spojení.",
+  );
 
   goldenTest(
     'golden test',
