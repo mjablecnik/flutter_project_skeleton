@@ -9,39 +9,45 @@ import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
 import 'package:flutter_project_skeleton/view/app/home_page.dart';
 import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/view/pages/error_page.dart';
+import 'package:storybook_toolkit/storybook_toolkit.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:storybook_flutter/storybook_flutter.dart';
 
 Storybook storybook() {
   return Storybook(
     wrapperBuilder: (context, child) {
       return TranslationProvider(
-        child: Builder(
-          builder: (context) {
-            return MaterialApp(
-                locale: TranslationProvider.of(context).flutterLocale,
-                supportedLocales: AppLocaleUtils.supportedLocales,
-                localizationsDelegates: GlobalMaterialLocalizations.delegates,
-                //debugShowCheckedModeBanner: false,
-                theme: themeModes.light,
-                darkTheme: themeModes.dark,
-                home: Scaffold(
-                  body: Center(
-                    child: child,
-                  ),
-                ),
-              );
-          }
-        ),
+        child: Builder(builder: (context) {
+          return MaterialApp(
+            locale: AppLocaleUtils.supportedLocales.first,
+            supportedLocales: AppLocaleUtils.supportedLocales,
+            localizationsDelegates: GlobalMaterialLocalizations.delegates,
+            //debugShowCheckedModeBanner: false,
+            theme: themeModes.light,
+            darkTheme: themeModes.dark,
+            home: Scaffold(
+              body: Center(
+                child: child,
+              ),
+            ),
+          );
+        }),
       );
     },
     plugins: initializePlugins(
-      enableContents: true,
-      enableKnobs: true,
-      enableThemeMode: true,
-      enableDeviceFrame: true,
-      contentsSidePanel: false,
-      knobsSidePanel: false,
+      enableCodeView: false,
+      enableDirectionality: false,
+      enableTimeDilation: false,
+      localizationData: LocalizationData(
+        supportedLocales: const {
+          "Czech": Locale('cs', 'CZ'),
+          "English": Locale('en', 'US'),
+        },
+        delegates: GlobalMaterialLocalizations.delegates,
+        currentLocale: AppLocaleUtils.supportedLocales.first,
+        onChangeLocale: (locale) {
+          LocaleSettings.setLocaleRaw(locale.languageCode);
+        },
+      ),
     ),
     stories: [
       Story(
@@ -90,7 +96,7 @@ Storybook storybook() {
       Story(
         name: 'Widgets/Text',
         description: 'Simple text widget.',
-        builder: (context) => const Center(child: Text('Simple text')),
+        builder: (context) => Center(child: Text(context.t.about.title)),
       ),
     ],
   );

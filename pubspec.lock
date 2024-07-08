@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "67.0.0"
+  adaptive_golden_test:
+    dependency: transitive
+    description:
+      name: adaptive_golden_test
+      sha256: "88113a77105b55bdddb7feabc776d4f6e86b79ea64829c4f772dc11623c5ed8a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1"
   analyzer:
     dependency: transitive
     description:
@@ -33,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  any_syntax_highlighter:
+    dependency: transitive
+    description:
+      name: any_syntax_highlighter
+      sha256: "9afce8a45ae6eaf2a64ce6a93f0d4b3730cb9ff80506aefec30efb17f332a7f1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.13"
   archive:
     dependency: transitive
     description:
@@ -329,14 +345,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.10"
-  device_frame:
+  device_frame_plus:
     dependency: transitive
     description:
-      name: device_frame
-      sha256: d031a06f5d6f4750009672db98a5aa1536aa4a231713852469ce394779a23d75
+      name: device_frame_plus
+      sha256: eab5078397754d334c55d9e8aa55dabfb6db72510a13988091cc6dd6d3426a42
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -369,6 +385,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.3+1"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fading_edge_scrollview:
     dependency: transitive
     description:
@@ -605,6 +629,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  go_router:
+    dependency: transitive
+    description:
+      name: go_router
+      sha256: c5fa45fa502ee880839e3b2152d987c44abae26d064a2376d4aad434cf0f7b15
+      url: "https://pub.dev"
+    source: hosted
+    version: "12.1.3"
+  google_fonts:
+    dependency: transitive
+    description:
+      name: google_fonts
+      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.5"
   graphs:
     dependency: transitive
     description:
@@ -1194,22 +1234,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.1"
-  storybook_flutter:
+  storybook_toolkit:
     dependency: "direct dev"
     description:
-      name: storybook_flutter
-      sha256: "65856434cd351d77e3347ce37ef7332e1060d06cfbae6a814811afa72d85f024"
+      name: storybook_toolkit
+      sha256: c69ee807e3bf77b2926d23d01ece667e890c5d8000e09a09d1469f79cdf1d801
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.0"
-  storybook_flutter_test:
-    dependency: "direct dev"
-    description:
-      name: storybook_flutter_test
-      sha256: "39c2c748961207fb3d4e4fcbd447e4e19ed3a10b4fbd6604df0b0394c1fc7975"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
+    version: "1.0.0"
   stream_channel:
     dependency: transitive
     description:
@@ -1414,10 +1446,10 @@ packages:
     dependency: "direct main"
     description:
       name: vader_popup
-      sha256: "8b63e51ddf0dad423ab78c056fd66ce021490da395d075b2170b27d7c6385935"
+      sha256: "46bfa2c86918226bd5a1fd04676b0f25d46e4d0bf89ab29d2fc94573c95eceec"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   vector_math:
     dependency: transitive
     description:

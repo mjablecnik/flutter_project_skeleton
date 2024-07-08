@@ -71,7 +71,7 @@ dependencies:
 
   # others:
   crypto: 3.0.3
-  vader_popup: 0.1.0
+  vader_popup: 0.1.1
   url_launcher: 6.2.5
   awesome_notifications: 0.9.3+1
   awesome_notifications_core: 0.9.3
@@ -95,8 +95,7 @@ dev_dependencies:
   package_rename: 1.5.3
   flutter_launcher_icons: 0.13.1
   mek_data_class_generator: 1.5.1
-  storybook_flutter: 0.13.0
-  storybook_flutter_test: any
+  storybook_toolkit: 1.0.0
 
 # For rename application
 # Run command: `dart run package_rename`
