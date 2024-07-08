@@ -12,6 +12,9 @@ import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
 import 'package:flutter_project_skeleton/logic/services/storage_service.dart';
 import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/settings.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockInjector extends Mock implements Injector {}
 
 @protected
 class Injector {

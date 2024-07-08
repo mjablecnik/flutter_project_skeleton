@@ -3,6 +3,9 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/clients/secure_storage.dart';
 import 'package:mobile_device_identifier/mobile_device_identifier.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockCachedData extends Mock implements CachedData {}
 
 class CachedData {
   late final bool isLoaded;

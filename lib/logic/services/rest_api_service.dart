@@ -5,6 +5,9 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/clients/http_client.dart';
 import 'package:flutter_project_skeleton/data/entities/product.dart';
 import 'package:flutter_project_skeleton/data/entities/user.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockRestApiService extends Mock implements RestApiService {}
 
 class RestApiService {
   RestApiService({required HttpClient httpClient}) {

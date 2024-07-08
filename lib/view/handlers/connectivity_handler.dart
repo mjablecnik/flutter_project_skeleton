@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -12,6 +14,7 @@ class ConnectivityHandler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (!Platform.isAndroid && !Platform.isIOS) return child;
     return Material(
       child: OfflineBuilder(
         connectivityBuilder: (BuildContext context, ConnectivityResult connectivity, Widget child) {

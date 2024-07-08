@@ -30,7 +30,8 @@
   ```
 
 ## Run tests
-Tests doesn't here yet.
+For update golden tests run: ` fvm flutter test --update-goldens --tags golden `
+For check golden tests run: ` fvm flutter test --tags golden `
 
 ## Release new version
 

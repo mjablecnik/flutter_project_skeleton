@@ -51,6 +51,8 @@ dependencies:
   # state management:
   bloc: 8.1.4
   flutter_bloc: 8.1.5
+  bloc_test: 9.1.7
+  mocktail: 1.0.4
 
   # data serialization:
   freezed: 2.4.7
@@ -69,7 +71,7 @@ dependencies:
 
   # others:
   crypto: 3.0.3
-  vader_popup: 0.1.0
+  vader_popup: 0.1.1
   url_launcher: 6.2.5
   awesome_notifications: 0.9.3+1
   awesome_notifications_core: 0.9.3
@@ -87,13 +89,13 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  bloc_test: 9.1.7
   theme_tailor: 3.0.1
   build_runner: 2.4.8
   flutter_lints: 3.0.2
   package_rename: 1.5.3
   flutter_launcher_icons: 0.13.1
   mek_data_class_generator: 1.5.1
+  storybook_toolkit: 1.0.0
 
 # For rename application
 # Run command: `dart run package_rename`
