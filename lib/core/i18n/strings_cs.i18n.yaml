@@ -1,0 +1,49 @@
+errors(map, interface=Error):
+  ServerException:
+    title: "Chyba"
+    message: "Během spojení nastala neznámá chyba."
+    type: "error"
+  InternetConnectionException:
+    title: "Problém s připojením"
+    message: "Zařízení není připojeno k Internetu."
+    type: "error"
+  ParseDataException:
+    title: "Problém se zpracováním dat"
+    message: "Nepodařilo se správně zpracovat stažená data."
+    type: "error"
+  AccessDeniedException:
+    title: "Přístup odepřen"
+    message: "Zadali jste nesprávné jméno nebo heslo."
+    type: "warning"
+app:
+  offline_mode: "Offline mode"
+  error_page:
+    title: "Vyskytla se chyba"
+    show_more_info: "Zobrazit podrobnosti"
+dialogs:
+  close_app:
+    title: "Ukončit aplikaci"
+    message: "Opravdu chcete aplikaci ukončit?"
+    yes: "Ano"
+    no: "Ne"
+about:
+  title: "O aplikaci"
+  name: "Jméno aplikace:"
+  version: "Verze:"
+login:
+  title: "Přihlášení"
+  name: "Jméno"
+  password: "Heslo"
+  submit: "Přihlásit se"
+  error:
+    required:
+      name: "Toto pole je povinné"
+      password: "Toto pole je povinné"
+    dialog:
+      login: "Nelze se přihlásit"
+menu:
+  logged_user: "Přihlášený uživatel:"
+  role: "Role:"
+  settings: "Nastavení"
+  about: "O Aplikaci"
+  logout: "Odhlásit se"

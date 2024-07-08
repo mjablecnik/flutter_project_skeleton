@@ -1,4 +1,4 @@
-base_locale: cs
+base_locale: en
 fallback_strategy: base_locale
 input_directory: lib/core/i18n
 output_directory: lib/core/i18n

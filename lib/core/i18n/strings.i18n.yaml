@@ -1,49 +1,49 @@
 errors(map, interface=Error):
   ServerException:
-    title: "Chyba"
-    message: "Během spojení nastala neznámá chyba."
+    title: "Error"
+    message: "An unknown error occurred during the connection."
     type: "error"
   InternetConnectionException:
-    title: "Problém s připojením"
-    message: "Zařízení není připojeno k Internetu."
+    title: "Connection problem"
+    message: "The device is not connected to the Internet."
     type: "error"
   ParseDataException:
-    title: "Problém se zpracováním dat"
-    message: "Nepodařilo se správně zpracovat stažená data."
+    title: "Problem with data processing"
+    message: "The downloaded data could not be properly processed."
     type: "error"
   AccessDeniedException:
-    title: "Přístup odepřen"
-    message: "Zadali jste nesprávné jméno nebo heslo."
+    title: "Access Denied"
+    message: "You entered an incorrect username or password."
     type: "warning"
 app:
   offline_mode: "Offline mode"
   error_page:
-    title: "Vyskytla se chyba"
-    show_more_info: "Zobrazit podrobnosti"
+    title: "An error occurred"
+    show_more_info: "Show details"
 dialogs:
   close_app:
-    title: "Ukončit aplikaci"
-    message: "Opravdu chcete aplikaci ukončit?"
-    yes: "Ano"
-    no: "Ne"
+    title: "Quit Application"
+    message: "Are you sure you want to quit the application?"
+    yes: "Yes"
+    well: "no"
 about:
-  title: "O aplikaci"
-  name: "Jméno aplikace:"
-  version: "Verze:"
+  title: "About the application"
+  name: "Application name:"
+  version: "Version:"
 login:
-  title: "Přihlášení"
-  name: "Jméno"
-  password: "Heslo"
-  submit: "Přihlásit se"
+  title: "Login"
+  name: "Name"
+  password: "Password"
+  submit: "Submit"
   error:
     required:
-      name: "Toto pole je povinné"
-      password: "Toto pole je povinné"
+      name: "This field is required"
+      password: "This field is required"
     dialog:
-      login: "Nelze se přihlásit"
+      login: "Unable to login"
 menu:
-  logged_user: "Přihlášený uživatel:"
+  logged_user: "Logged in user:"
   role: "Role:"
-  settings: "Nastavení"
-  about: "O Aplikaci"
-  logout: "Odhlásit se"
+  settings: "Settings"
+  about: "About the Application"
+  logout: "Logout"
