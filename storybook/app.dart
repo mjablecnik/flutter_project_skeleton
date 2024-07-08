@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_project_skeleton/data/entities/product.dart';
 import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
 import 'package:flutter_project_skeleton/view/app/home_page.dart';
-import 'package:flutter_project_skeleton/view/layouts/test_layout.dart';
+import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/view/pages/error_page.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
@@ -15,8 +16,22 @@ Storybook storybook() {
   return Storybook(
     wrapperBuilder: (context, child) {
       return TranslationProvider(
-        child: TestLayout(
-          child: child,
+        child: Builder(
+          builder: (context) {
+            return MaterialApp(
+                locale: TranslationProvider.of(context).flutterLocale,
+                supportedLocales: AppLocaleUtils.supportedLocales,
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                //debugShowCheckedModeBanner: false,
+                theme: themeModes.light,
+                darkTheme: themeModes.dark,
+                home: Scaffold(
+                  body: Center(
+                    child: child,
+                  ),
+                ),
+              );
+          }
         ),
       );
     },
