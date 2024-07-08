@@ -95,7 +95,8 @@ dev_dependencies:
   package_rename: 1.5.3
   flutter_launcher_icons: 0.13.1
   mek_data_class_generator: 1.5.1
-  storybook_toolkit: 1.0.0
+  storybook_toolkit:
+    git: git@github.com:mjablecnik/storybook_toolkit.git
 
 # For rename application
 # Run command: `dart run package_rename`

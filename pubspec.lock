@@ -1237,10 +1237,11 @@ packages:
   storybook_toolkit:
     dependency: "direct dev"
     description:
-      name: storybook_toolkit
-      sha256: c69ee807e3bf77b2926d23d01ece667e890c5d8000e09a09d1469f79cdf1d801
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: b2cfffdd19a071d91c0bdbf06a19cb67db1c9b99
+      url: "git@github.com:mjablecnik/storybook_toolkit.git"
+    source: git
     version: "1.0.0"
   stream_channel:
     dependency: transitive

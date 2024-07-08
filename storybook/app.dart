@@ -67,6 +67,7 @@ Storybook storybook() {
       Story(
         name: 'Pages/HomePage',
         description: 'First default page.',
+        loadDuration: const Duration(seconds: 4),
         builder: (context) {
           final cachedData = MockCachedData();
           when(() => cachedData.appName).thenReturn('Meow');
