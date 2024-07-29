@@ -1,3 +1,4 @@
+import 'package:design_package_example/design_package_example.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' as mt;
 import 'package:flutter/painting.dart';
@@ -14,13 +15,14 @@ get light {
       labelStyle: TextStyle(color: AppColors.green),
       focusColor: AppColors.greenLight,
       focusedBorder: mt.UnderlineInputBorder(
-        borderSide: mt.BorderSide(color: AppColors.greenLight),
+        borderSide: BorderSide(color: AppColors.greenLight),
       ),
-      activeIndicatorBorder: mt.BorderSide(color: AppColors.red),
+      activeIndicatorBorder: BorderSide(color: AppColors.red),
       fillColor: AppColors.red,
     ),
-    extensions: const [
-      AppTheme(
+    extensions: [
+      DesignPackageThemeExtension.light,
+      const AppTheme(
         layout: LayoutTheme(
           backgroundColor: AppColors.whiteish,
           appBarColor: AppColors.greenLight,
@@ -52,7 +54,7 @@ get light {
             ),
           ),
         ),
-      )
+      ),
     ],
   );
 }

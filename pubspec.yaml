@@ -76,6 +76,9 @@ dependencies:
   awesome_notifications: 0.9.3+1
   awesome_notifications_core: 0.9.3
 
+  design_package_example:
+    git: git@github.com:mjablecnik/design_package_example.git
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: 1.0.6

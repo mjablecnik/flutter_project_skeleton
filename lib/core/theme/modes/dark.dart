@@ -1,7 +1,7 @@
+import 'package:design_package_example/design_package_example.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' as mt;
 import 'package:flutter/painting.dart';
-import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/theme/app.dart';
 import 'package:flutter_project_skeleton/core/theme/modes/colors.dart';
 import 'package:flutter_project_skeleton/core/theme/components.dart';
@@ -10,8 +10,9 @@ import 'package:flutter_project_skeleton/core/theme/pages.dart';
 get dark {
   return mt.ThemeData(
     brightness: Brightness.dark,
-    extensions: const [
-      AppTheme(
+    extensions:  [
+      DesignPackageThemeExtension.dark,
+      const AppTheme(
         layout: LayoutTheme(
           backgroundColor: AppColors.greyDark,
           appBarColor: AppColors.green,
