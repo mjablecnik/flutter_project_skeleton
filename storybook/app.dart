@@ -21,9 +21,10 @@ Storybook storybook() {
             locale: AppLocaleUtils.supportedLocales.first,
             supportedLocales: AppLocaleUtils.supportedLocales,
             localizationsDelegates: GlobalMaterialLocalizations.delegates,
-            //debugShowCheckedModeBanner: false,
+            debugShowCheckedModeBanner: false,
             theme: themeModes.light,
             darkTheme: themeModes.dark,
+            builder: defaultMediaQueryBuilder,
             home: Scaffold(
               body: Center(
                 child: child,
