@@ -38,6 +38,7 @@ dependencies:
   slang: 3.31.1
   slang_flutter: 3.31.0
   auto_injector: 2.0.4
+  sentry_dio: 8.5.0
   sentry_flutter: 8.5.0
   talker_flutter: 4.3.4
   talker_dio_logger: 4.3.4
