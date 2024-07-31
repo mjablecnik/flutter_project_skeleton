@@ -26,14 +26,12 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - ReachabilitySwift (5.2.1)
-  - Sentry/HybridSDK (8.21.0):
-    - SentryPrivate (= 8.21.0)
-  - sentry_flutter (7.19.0):
+  - ReachabilitySwift (5.2.3)
+  - Sentry/HybridSDK (8.32.0)
+  - sentry_flutter (8.5.0):
     - Flutter
     - FlutterMacOS
-    - Sentry/HybridSDK (= 8.21.0)
-  - SentryPrivate (8.21.0)
+    - Sentry/HybridSDK (= 8.32.0)
   - share_plus (0.0.1):
     - Flutter
   - url_launcher_ios (0.0.1):
@@ -61,7 +59,6 @@ SPEC REPOS:
     - JNKeychain
     - ReachabilitySwift
     - Sentry
-    - SentryPrivate
 
 EXTERNAL SOURCES:
   awesome_notifications:
@@ -97,7 +94,7 @@ SPEC CHECKSUMS:
   awesome_notifications: 66d28ab7174ca2823b04d275cb043e0a4a3eb9cf
   awesome_notifications_core: d02eed89738fa362d56cbd372850e9adcd2c6bef
   connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
-  device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
+  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_keyboard_visibility: 0339d06371254c3eb25eeb90ba8d17dca8f9c069
   flutter_secure_storage: d33dac7ae2ea08509be337e775f6b59f1ff45f12
@@ -105,15 +102,14 @@ SPEC CHECKSUMS:
   JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
   mobile_device_identifier: 34f80c8985bb1506880c2ae10cb24cfb9918f1a7
   network_info_plus: 6d0c3eb8367b8164fa3fb0c19875e3f59d49697f
-  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
-  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
-  ReachabilitySwift: 5ae15e16814b5f9ef568963fb2c87aeb49158c66
-  Sentry: ebc12276bd17613a114ab359074096b6b3725203
-  sentry_flutter: 88ebea3f595b0bc16acc5bedacafe6d60c12dcd5
-  SentryPrivate: d651efb234cf385ec9a1cdd3eff94b5e78a0e0fe
-  share_plus: c3fef564749587fc939ef86ffb283ceac0baf9f5
-  url_launcher_ios: 6116280ddcfe98ab8820085d8d76ae7449447586
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
+  Sentry: 96ae1dcdf01a644bc3a3b1dc279cecaf48a833fb
+  sentry_flutter: f1d86adcb93a959bc47a40d8d55059bdf7569bc5
+  share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
-PODFILE CHECKSUM: e266b1465ec6eb9f4d984d482fdf422826286aba
+PODFILE CHECKSUM: 2cfdedd8fc08b472721f3ef822509433ea09fe6f
 
 COCOAPODS: 1.15.2
