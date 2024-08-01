@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_project_skeleton/view/popups/default.dart';
+import 'package:flutter_project_skeleton/core/app/popup.dart';
 
 class BackButtonHandler extends StatefulWidget {
   const BackButtonHandler({super.key, required this.child, this.onBack});

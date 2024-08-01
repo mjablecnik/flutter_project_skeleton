@@ -8,7 +8,7 @@ import 'package:flutter_project_skeleton/logic/cubits/product_list_cubit.dart';
 import 'package:flutter_project_skeleton/logic/services/rest_api_service.dart';
 import 'package:flutter_project_skeleton/view/app/home_page.dart';
 import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
-import 'package:flutter_project_skeleton/view/pages/error_page.dart';
+import 'package:flutter_project_skeleton/view/app/error_page.dart';
 import 'package:storybook_toolkit/storybook_toolkit.dart';
 import 'package:mocktail/mocktail.dart';
 

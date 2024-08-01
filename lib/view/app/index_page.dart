@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 
-class LogoPage extends StatefulWidget {
-  const LogoPage({super.key});
+class IndexPage extends StatefulWidget {
+  const IndexPage({super.key});
 
   @override
-  State<LogoPage> createState() => _LogoPageState();
+  State<IndexPage> createState() => _IndexPageState();
 }
 
-class _LogoPageState extends State<LogoPage> {
+class _IndexPageState extends State<IndexPage> {
   @override
   void initState() {
     super.initState();
@@ -19,7 +19,7 @@ class _LogoPageState extends State<LogoPage> {
       final navigator = Navigator.of(context);
       final user = await injector.get<AuthCubit>().getLoggedUser();
       if (user == null) {
-        navigator.pushReplacementNamed(Routes.login);
+        navigator.pushReplacementNamed(Routes.auth);
       } else {
         navigator.pushReplacementNamed(Routes.home);
       }

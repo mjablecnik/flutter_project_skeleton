@@ -3,8 +3,8 @@ import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
 
-class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+class DefaultDrawer extends StatelessWidget {
+  const DefaultDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +53,13 @@ class MainDrawer extends StatelessWidget {
             title: Text(context.t.menu.settings),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushNamed(Routes.dialogTester);
             },
           ),
           ListTile(
             title: Text(context.t.menu.about),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).pushNamed(Routes.info);
+              Navigator.of(context).pushNamed(Routes.about);
             },
           ),
           ListTile(
@@ -68,7 +67,7 @@ class MainDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               injector.get<AuthCubit>().logout();
-              Navigator.of(context).pushReplacementNamed(Routes.login);
+              Navigator.of(context).pushReplacementNamed(Routes.auth);
             },
           ),
         ],

@@ -29,11 +29,10 @@ class Constants {
 }
 
 class Routes {
-  static const logo = '/';
-  static const login = '/login';
-  static const info = '/info';
-  static const home = '/main-menu';
-  static const dialogTester = '/dialog-tester';
+  static const index = '/';
+  static const auth = '/auth';
+  static const about = '/about';
+  static const home = '/home';
 }
 
 enum Environment { mock, test, devel, preview, production }

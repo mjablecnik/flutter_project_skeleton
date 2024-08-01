@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/handlers/back_button_handler.dart';
+import 'package:flutter_project_skeleton/core/handlers/connectivity_handler.dart';
 import 'package:flutter_project_skeleton/core/theme/app.dart';
-import 'package:flutter_project_skeleton/view/components/main_drawer.dart';
-import 'package:flutter_project_skeleton/view/handlers/back_button_handler.dart';
-import 'package:flutter_project_skeleton/view/handlers/connectivity_handler.dart';
+import 'package:flutter_project_skeleton/view/layouts/default/default_drawer.dart';
 
 class DefaultLayout extends StatelessWidget {
   const DefaultLayout({
@@ -10,7 +10,7 @@ class DefaultLayout extends StatelessWidget {
     required this.title,
     required this.body,
     this.actions,
-    this.drawer = const MainDrawer(),
+    this.drawer = const DefaultDrawer(),
     this.padding = EdgeInsets.zero,
     this.onBack,
   });

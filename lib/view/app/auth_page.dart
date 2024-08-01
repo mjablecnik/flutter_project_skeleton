@@ -5,18 +5,18 @@ import 'package:flutter_project_skeleton/core/app/cached_data.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/core/theme/app.dart';
 import 'package:flutter_project_skeleton/logic/cubits/auth_cubit.dart';
-import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
+import 'package:flutter_project_skeleton/view/layouts/default/default_layout.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class AuthPage extends StatefulWidget {
+  const AuthPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<AuthPage> createState() => _AuthPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _AuthPageState extends State<AuthPage> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   Future<void> submit() async {
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
           position: PopupMenuPosition.under,
           itemBuilder: (BuildContext context) => <PopupMenuEntry>[
             PopupMenuItem(
-              onTap: () => Navigator.of(context).pushNamed(Routes.info),
+              onTap: () => Navigator.of(context).pushNamed(Routes.about),
               child: Text(context.t.menu.about),
             ),
           ],

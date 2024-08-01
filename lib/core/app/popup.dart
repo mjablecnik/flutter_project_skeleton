@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/view/pages/error_page.dart';
+import 'package:flutter_project_skeleton/view/app/error_page.dart';
 import 'package:vader_popup/vader_popup.dart';
 
 class Popup {

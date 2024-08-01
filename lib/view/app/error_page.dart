@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/core/theme/app.dart';
-import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
+import 'package:flutter_project_skeleton/view/layouts/default/default_layout.dart';
 
 class ErrorPage extends StatefulWidget {
   const ErrorPage({

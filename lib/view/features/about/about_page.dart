@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
-import 'package:flutter_project_skeleton/view/layouts/default_layout.dart';
+import 'package:flutter_project_skeleton/view/layouts/default/default_layout.dart';
 
-class InfoPage extends StatelessWidget {
-  const InfoPage({super.key});
+class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {

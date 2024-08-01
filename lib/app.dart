@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_skeleton/core/handlers/notification_handler.dart';
 import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
-import 'package:flutter_project_skeleton/view/handlers/notification_handler.dart';
+import 'package:flutter_project_skeleton/view/features/about/about_page.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
-import 'package:flutter_project_skeleton/view/pages/dialog_tester_page.dart';
 import 'package:flutter_project_skeleton/view/app/home_page.dart';
-import 'package:flutter_project_skeleton/view/pages/info_page.dart';
-import 'package:flutter_project_skeleton/view/app/login_page.dart';
-import 'package:flutter_project_skeleton/view/app/logo_page.dart';
+import 'package:flutter_project_skeleton/view/app/auth_page.dart';
+import 'package:flutter_project_skeleton/view/app/index_page.dart';
 import 'package:theme_mode_handler/theme_mode_handler.dart';
 
 class MyApp extends StatelessWidget {
@@ -32,17 +31,16 @@ class MyApp extends StatelessWidget {
               theme: themeModes.light,
               darkTheme: themeModes.dark,
               themeMode: themeMode,
-              initialRoute: Routes.logo,
+              initialRoute: Routes.index,
               navigatorKey: App.get.navigatorKey,
               navigatorObservers: [
                 SentryNavigatorObserver(),
               ],
               routes: {
-                Routes.logo: (context) => const LogoPage(),
-                Routes.login: (context) => const LoginPage(),
-                Routes.info: (context) => const InfoPage(),
+                Routes.index: (context) => const IndexPage(),
+                Routes.about: (context) => const AboutPage(),
+                Routes.auth: (context) => const AuthPage(),
                 Routes.home: (context) => HomePage(injector: injector),
-                Routes.dialogTester: (context) => const DialogTester(),
               },
               builder: (context, child) {
                 return MediaQuery(
