@@ -40,8 +40,9 @@ dependencies:
   auto_injector: 2.0.4
   sentry_dio: 8.5.0
   sentry_flutter: 8.5.0
-  talker_flutter: 4.4.0
-  talker_dio_logger: 4.4.0
+  talker: <=4.1.2             # Upgrade to higher version only after upgrade Java SDK to version 17
+  talker_flutter: <=4.1.2     # Upgrade to higher version only after upgrade Java SDK to version 17
+  talker_dio_logger: <=4.1.2  # Upgrade to higher version only after upgrade Java SDK to version 17
   flutter_form_builder: 9.3.0
   flutter_secure_storage: 9.2.2
   form_builder_validators: 11.0.0
@@ -64,8 +65,8 @@ dependencies:
 
   # device plugins:
   flutter_offline: 3.0.1
-  device_info_plus: <=9.1.2
-  package_info_plus: <=4.0.1
+  device_info_plus: <=9.1.2      # Upgrade to higher version only after upgrade Java SDK to version 17
+  package_info_plus: <=4.0.1     # Upgrade to higher version only after upgrade Java SDK to version 17
   mobile_device_identifier: 0.0.2
   android_device_id_generator: 0.1.1
   internet_connection_checker: 1.0.0+1
