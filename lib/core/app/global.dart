@@ -1,10 +1,13 @@
 import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
+import 'package:flutter_project_skeleton/core/theme/themes.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:vader_popup/vader_popup.dart';
 
 const PopupDialog _popup = PopupDialog();
+
+const Themes _themes = Themes();
 
 final Injector _injector = Injector.instance;
 
@@ -46,6 +49,8 @@ class App {
   BuildContext? get context => navigatorKey?.currentContext;
 
   static Talker get logger => _logger;
+
+  static Themes get themes => _themes;
 
   static PopupDialog get popup => _popup;
 }

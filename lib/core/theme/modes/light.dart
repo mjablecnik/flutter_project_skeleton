@@ -7,7 +7,7 @@ import 'package:flutter_project_skeleton/core/theme/modes/colors.dart';
 import 'package:flutter_project_skeleton/core/theme/components.dart';
 import 'package:flutter_project_skeleton/core/theme/pages.dart';
 
-get light {
+get lightTheme {
   return mt.ThemeData(
     brightness: Brightness.light,
     colorSchemeSeed: AppColors.green,

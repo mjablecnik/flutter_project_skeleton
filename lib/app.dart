@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_skeleton/core/handlers/notification_handler.dart';
-import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/view/features/about/about_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -27,8 +26,8 @@ class MyApp extends StatelessWidget {
               supportedLocales: AppLocaleUtils.supportedLocales,
               localizationsDelegates: GlobalMaterialLocalizations.delegates,
               debugShowCheckedModeBanner: false,
-              theme: themeModes.light,
-              darkTheme: themeModes.dark,
+              theme: App.themes.light,
+              darkTheme: App.themes.dark,
               themeMode: themeMode,
               initialRoute: Routes.index,
               navigatorKey: App.navigatorKey,

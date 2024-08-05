@@ -7,7 +7,7 @@ import 'package:flutter_project_skeleton/core/theme/modes/colors.dart';
 import 'package:flutter_project_skeleton/core/theme/components.dart';
 import 'package:flutter_project_skeleton/core/theme/pages.dart';
 
-get dark {
+get darkTheme {
   return mt.ThemeData(
     brightness: Brightness.dark,
     extensions:  [
