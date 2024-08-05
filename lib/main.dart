@@ -49,7 +49,7 @@ void setupSystemStyle() {
 
 Widget app() {
   return TranslationProvider(
-    child: App(
+    child: InjectorProvider(
       child: const MyApp(),
     ),
   );

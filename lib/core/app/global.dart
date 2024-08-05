@@ -38,23 +38,7 @@ enum Environment { mock, test, devel, preview, production }
 
 enum DialogType { info, error, warning, success }
 
-class App extends InheritedWidget {
-  App({
-    super.key,
-    Injector? injector,
-    Talker? logger,
-    PopupDialog? popup,
-    required super.child,
-  }) {
-    this.injector = injector ?? _injector;
-    getLogger = logger ?? _logger;
-    getPopup = popup ?? _popup;
-  }
-
-  late final Injector injector;
-  late final Talker getLogger;
-  late final PopupDialog getPopup;
-
+class App {
   static GlobalKey<NavigatorState>? navigatorKey = Catcher2.navigatorKey;
 
   NavigatorState? get navigator => navigatorKey?.currentState;
@@ -64,21 +48,31 @@ class App extends InheritedWidget {
   static Talker get logger => _logger;
 
   static PopupDialog get popup => _popup;
+}
 
-  static App of(BuildContext context) {
-    final App? result = context.dependOnInheritedWidgetOfExactType<App>();
-    assert(result != null, 'No Injector found in context');
+class InjectorProvider extends InheritedWidget {
+  InjectorProvider({
+    super.key,
+    Injector? injector,
+    required super.child,
+  }) {
+    this.injector = injector ?? _injector;
+  }
+
+  late final Injector injector;
+
+  static InjectorProvider of(BuildContext context) {
+    final InjectorProvider? result = context.dependOnInheritedWidgetOfExactType<InjectorProvider>();
+    assert(result != null, 'No InjectorProvider found in context');
     return result!;
   }
 
   @override
-  bool updateShouldNotify(App oldWidget) {
+  bool updateShouldNotify(InjectorProvider oldWidget) {
     return false;
   }
 }
 
 extension BuildContextExtension on BuildContext {
-  Injector get injector => App.of(this).injector;
-  PopupDialog get popup => App.of(this).getPopup;
-  Talker get logger => App.of(this).getLogger;
+  Injector get injector => InjectorProvider.of(this).injector;
 }

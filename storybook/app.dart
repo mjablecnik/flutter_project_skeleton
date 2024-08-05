@@ -93,7 +93,7 @@ Storybook storybook() {
           final injector = MockInjector();
           when(() => injector.get<CachedData>()).thenReturn(cachedData);
           when(() => injector.get<ProductListCubit>()).thenReturn(ProductListCubit(restApiService: restApiService));
-          return App(injector: injector, child: const HomePage());
+          return InjectorProvider(injector: injector, child: const HomePage());
         },
       ),
       Story(
