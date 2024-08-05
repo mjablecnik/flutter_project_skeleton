@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/cached_data.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 import 'package:flutter_project_skeleton/data/entities/product.dart';
@@ -89,10 +90,10 @@ Storybook storybook() {
             );
           });
 
-          final inj = MockInjector();
-          when(() => inj.get<CachedData>()).thenReturn(cachedData);
-          when(() => inj.get<ProductListCubit>()).thenReturn(ProductListCubit(restApiService: restApiService));
-          return HomePage(injector: inj);
+          final injector = MockInjector();
+          when(() => injector.get<CachedData>()).thenReturn(cachedData);
+          when(() => injector.get<ProductListCubit>()).thenReturn(ProductListCubit(restApiService: restApiService));
+          return App(injector: injector, child: const HomePage());
         },
       ),
       Story(

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
                 Routes.index: (context) => const IndexPage(),
                 Routes.about: (context) => const AboutPage(),
                 Routes.auth: (context) => const AuthPage(),
-                Routes.home: (context) => HomePage(injector: context.injector),
+                Routes.home: (context) => const HomePage(),
               },
               builder: (context, child) {
                 return MediaQuery(
