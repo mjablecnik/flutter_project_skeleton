@@ -8,7 +8,7 @@ import 'package:vader_popup/vader_popup.dart';
 
 class Popup {
   static Future<bool> showCloseDialog(BuildContext context) async {
-    final result = await popup.question(
+    final result = await App.popup.question(
       context: context,
       title: t.dialogs.closeApp.title,
       message: t.dialogs.closeApp.message,

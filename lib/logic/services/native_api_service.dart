@@ -10,7 +10,7 @@ class NativeApiService {
     try {
       return await _methodChannel.invokeMethod('getSecureDeviceId');
     } on Exception catch (e) {
-      logger.error(e);
+      App.logger.error(e);
       return null;
     }
   }

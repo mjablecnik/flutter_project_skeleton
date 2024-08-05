@@ -26,7 +26,7 @@ class HttpClient {
     if (settings.logs.enableHttpLogs) {
       dio.interceptors.add(
         TalkerDioLogger(
-          talker: logger,
+          talker: App.logger,
           settings: TalkerDioLoggerSettings(
             printRequestHeaders: true,
             printRequestData: true,
@@ -56,8 +56,8 @@ class HttpClient {
         try {
           return await parseData(response.data);
         } on Error catch (error) {
-          logger.error(error);
-          logger.handle(error.stackTrace.toString());
+          App.logger.error(error);
+          App.logger.handle(error.stackTrace.toString());
           throw ParseDataException();
         }
       }
@@ -74,8 +74,8 @@ class HttpClient {
             final error = await onServerError.call(e.response?.statusCode, e.response?.data);
             if (error != null) throw error;
           } on Error catch (error) {
-            logger.error(error);
-            logger.handle(error.stackTrace.toString());
+            App.logger.error(error);
+            App.logger.handle(error.stackTrace.toString());
           }
         }
         throw ServerException(

@@ -23,7 +23,7 @@ class RestApiService {
       callback.call();
       return true;
     } catch (e) {
-      logger.handle(e);
+      App.logger.handle(e);
       return false;
     }
   }

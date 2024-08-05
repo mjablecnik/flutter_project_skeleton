@@ -6,25 +6,25 @@ class NotificationController {
   /// Use this method to detect when a new notification or a schedule is created
   @pragma("vm:entry-point")
   static Future<void> onNotificationCreatedMethod(ReceivedNotification receivedNotification) async {
-    logger.info("Push notification was created");
+    App.logger.info("Push notification was created");
   }
 
   /// Use this method to detect every time that a new notification is displayed
   @pragma("vm:entry-point")
   static Future<void> onNotificationDisplayedMethod(ReceivedNotification receivedNotification) async {
-    logger.info("Push notification was displayed");
+    App.logger.info("Push notification was displayed");
   }
 
   /// Use this method to detect if the user dismissed a notification
   @pragma("vm:entry-point")
   static Future<void> onDismissActionReceivedMethod(ReceivedAction receivedAction) async {
-    logger.info("Push notification was dismissed");
+    App.logger.info("Push notification was dismissed");
   }
 
   /// Use this method to detect when the user taps on a notification or action button
   @pragma("vm:entry-point")
   static Future<void> onActionReceivedMethod(ReceivedAction receivedAction) async {
-    logger.info("Push notification was tapped");
+    App.logger.info("Push notification was tapped");
 
     // // Navigate into pages, avoiding to open the notification details page over another details page already opened
     // App.get.navigator.pushNamedAndRemoveUntil(

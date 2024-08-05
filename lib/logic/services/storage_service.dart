@@ -13,7 +13,7 @@ class StorageService {
     try {
       return User.fromJson(await _storage.getMap(StorageKey.loggedUser.name));
     } catch (e) {
-      logger.error(e);
+      App.logger.error(e);
       return null;
     }
   }
