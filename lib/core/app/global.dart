@@ -1,3 +1,4 @@
+import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -38,17 +39,17 @@ enum Environment { mock, test, devel, preview, production }
 enum DialogType { info, error, warning, success }
 
 class App {
-  late final GlobalKey<NavigatorState> navigatorKey;
+  static GlobalKey<NavigatorState>? navigatorKey = Catcher2.navigatorKey;
 
-  NavigatorState? get navigator => navigatorKey.currentState;
+  NavigatorState? get navigator => navigatorKey?.currentState;
 
-  BuildContext? get context => navigatorKey.currentContext;
+  BuildContext? get context => navigatorKey?.currentContext;
 
   // get theme => AppTheme.get.theme;
 
-  static final App get = App._initialize();
+  //static final App get = App._initialize();
 
-  App._initialize() {
-    navigatorKey = GlobalKey<NavigatorState>();
-  }
+  //App._initialize() {
+  //  navigatorKey = GlobalKey<NavigatorState>();
+  //}
 }
