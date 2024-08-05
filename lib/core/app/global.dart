@@ -38,24 +38,47 @@ enum Environment { mock, test, devel, preview, production }
 
 enum DialogType { info, error, warning, success }
 
-class App {
+class App extends InheritedWidget {
+  App({
+    super.key,
+    Injector? injector,
+    Talker? logger,
+    PopupDialog? popup,
+    required super.child,
+  }) {
+    this.injector = injector ?? _injector;
+    getLogger = logger ?? _logger;
+    getPopup = popup ?? _popup;
+  }
+
+  late final Injector injector;
+  late final Talker getLogger;
+  late final PopupDialog getPopup;
+
   static GlobalKey<NavigatorState>? navigatorKey = Catcher2.navigatorKey;
 
   NavigatorState? get navigator => navigatorKey?.currentState;
 
   BuildContext? get context => navigatorKey?.currentContext;
 
-  static Injector get injector => _injector;
+  static Talker get logger => _logger;
 
   static PopupDialog get popup => _popup;
 
-  static Talker get logger => _logger;
+  static App of(BuildContext context) {
+    final App? result = context.dependOnInheritedWidgetOfExactType<App>();
+    assert(result != null, 'No Injector found in context');
+    return result!;
+  }
 
-  // get theme => AppTheme.get.theme;
+  @override
+  bool updateShouldNotify(App oldWidget) {
+    return false;
+  }
+}
 
-  //static final App get = App._initialize();
-
-  //App._initialize() {
-  //  navigatorKey = GlobalKey<NavigatorState>();
-  //}
+extension BuildContextExtension on BuildContext {
+  Injector get injector => App.of(this).injector;
+  PopupDialog get popup => App.of(this).getPopup;
+  Talker get logger => App.of(this).getLogger;
 }

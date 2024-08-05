@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/app.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 
 void setupNotifications() {
@@ -48,7 +49,9 @@ void setupSystemStyle() {
 
 Widget app() {
   return TranslationProvider(
-    child: const MyApp(),
+    child: App(
+      child: const MyApp(),
+    ),
   );
 }
 

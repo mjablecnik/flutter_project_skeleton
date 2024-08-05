@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ThemeModeHandler(
-      manager: App.injector.get<ThemeService>(),
+      manager: context.injector.get<ThemeService>(),
       builder: (ThemeMode themeMode) {
         return NotificationHandler(
           child: GestureDetector(
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
                 Routes.index: (context) => const IndexPage(),
                 Routes.about: (context) => const AboutPage(),
                 Routes.auth: (context) => const AuthPage(),
-                Routes.home: (context) => HomePage(injector: App.injector),
+                Routes.home: (context) => HomePage(injector: context.injector),
               },
               builder: (context, child) {
                 return MediaQuery(

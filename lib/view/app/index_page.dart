@@ -17,7 +17,7 @@ class _IndexPageState extends State<IndexPage> {
     super.initState();
     Timer(const Duration(seconds: 1), () async {
       final navigator = Navigator.of(context);
-      final user = await App.injector.get<AuthCubit>().getLoggedUser();
+      final user = await context.injector.get<AuthCubit>().getLoggedUser();
       if (user == null) {
         navigator.pushReplacementNamed(Routes.auth);
       } else {

@@ -38,7 +38,7 @@ class AboutPage extends StatelessWidget {
                   width: 32,
                   color: Colors.white,
                   child: Text(
-                    App.injector.get<CachedData>().appName,
+                    context.injector.get<CachedData>().appName,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -64,7 +64,7 @@ class AboutPage extends StatelessWidget {
                   width: 32,
                   color: Colors.white,
                   child: Text(
-                    App.injector.get<CachedData>().appVersion,
+                    context.injector.get<CachedData>().appVersion,
                     textAlign: TextAlign.center,
                   ),
                 ),
