@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_project_skeleton/settings.dart';
@@ -48,40 +49,35 @@ void setupSystemStyle() {
   }
 }
 
-setupSentry(Widget child) async {
-  final settings = injector.get<Settings>();
-  if (settings.sentryDsn != null) {
-    await SentryFlutter.init(
-      (options) {
-        options.dsn = settings.sentryDsn;
-        options.tracesSampleRate = 1.0;
-      },
-      appRunner: () => runApp(
-        DefaultAssetBundle(
-          bundle: SentryAssetBundle(),
-          child: child,
-        ),
-      ),
-    );
-  } else {
-    runApp(child);
-  }
-}
-
 Widget app() {
   return TranslationProvider(
     child: const MyApp(),
   );
 }
 
-Future<void> setup({bool isTest = false}) async {
-  LocaleSettings.useDeviceLocale();
-  setupSystemStyle();
-  setupNotifications();
-  setupSentry(app());
-}
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  setup(isTest: false);
+  final settings = injector.get<Settings>();
+  Catcher2(
+    runAppFunction: () {
+      LocaleSettings.useDeviceLocale();
+      setupSystemStyle();
+      setupNotifications();
+      runApp(app());
+    },
+    ensureInitialized: true,
+    debugConfig: Catcher2Options(PageReportMode(), [ConsoleHandler()]),
+    releaseConfig: Catcher2Options(
+      PageReportMode(),
+      [
+        ConsoleHandler(),
+        if (settings.sentryDsn != null)
+          SentryHandler(
+            SentryClient(
+              SentryOptions(dsn: settings.sentryDsn),
+            ),
+          ),
+      ],
+    ),
+  );
 }
