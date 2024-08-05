@@ -4,11 +4,11 @@ import 'package:flutter_project_skeleton/core/app/injector.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:vader_popup/vader_popup.dart';
 
-const popup = PopupDialog();
+const PopupDialog popup = PopupDialog();
 
-final injector = Injector.instance;
+final Injector _injector = Injector.instance;
 
-final logger = TalkerFlutter.init(
+final Talker logger = TalkerFlutter.init(
   settings: TalkerSettings(
     useHistory: false,
     useConsoleLogs: true,
@@ -44,6 +44,8 @@ class App {
   NavigatorState? get navigator => navigatorKey?.currentState;
 
   BuildContext? get context => navigatorKey?.currentContext;
+
+  static Injector get injector => _injector;
 
   // get theme => AppTheme.get.theme;
 
