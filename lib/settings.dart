@@ -16,7 +16,6 @@ class Settings {
   late final String apiUrl;
   late final String apiKey;
   late final Environment environment;
-  late final String? sentryDsn;
   final Logs logs = const Logs();
 
   Settings() {
@@ -27,27 +26,22 @@ class Settings {
         apiUrl = "";
         apiKey = "";
         environment = Environment.production;
-        sentryDsn = null;
       case "preview":
         apiUrl = "";
         apiKey = "";
         environment = Environment.preview;
-        sentryDsn = null;
       case "dev" || "devel" || "development":
         apiUrl = "";
         apiKey = "";
         environment = Environment.devel;
-        sentryDsn = null;
       case "test":
         apiUrl = "";
         apiKey = "";
         environment = Environment.test;
-        sentryDsn = null;
       default:
         apiUrl = "https://dummyjson.com";
         apiKey = "";
         environment = Environment.devel;
-        sentryDsn = null;
     }
   }
 }

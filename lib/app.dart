@@ -3,7 +3,6 @@ import 'package:flutter_project_skeleton/core/handlers/notification_handler.dart
 import 'package:flutter_project_skeleton/core/theme/modes.dart' as themeModes;
 import 'package:flutter_project_skeleton/logic/services/theme_service.dart';
 import 'package:flutter_project_skeleton/view/features/about/about_page.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
@@ -33,9 +32,6 @@ class MyApp extends StatelessWidget {
               themeMode: themeMode,
               initialRoute: Routes.index,
               navigatorKey: App.get.navigatorKey,
-              navigatorObservers: [
-                SentryNavigatorObserver(),
-              ],
               routes: {
                 Routes.index: (context) => const IndexPage(),
                 Routes.about: (context) => const AboutPage(),

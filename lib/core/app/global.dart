@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_project_skeleton/core/app/injector.dart';
-import 'package:flutter_project_skeleton/core/app/logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:vader_popup/vader_popup.dart';
 
@@ -9,7 +8,6 @@ const popup = PopupDialog();
 final injector = Injector.instance;
 
 final logger = TalkerFlutter.init(
-  observer: const CustomTalkerObserver(),
   settings: TalkerSettings(
     useHistory: false,
     useConsoleLogs: true,

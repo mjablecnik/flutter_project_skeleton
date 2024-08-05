@@ -3,10 +3,7 @@ import 'dart:io';
 import 'package:catcher_2/catcher_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_project_skeleton/settings.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:flutter_project_skeleton/app.dart';
-import 'package:flutter_project_skeleton/core/app/global.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter_project_skeleton/core/i18n/translations.g.dart';
 
@@ -56,8 +53,6 @@ Widget app() {
 }
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  final settings = injector.get<Settings>();
   Catcher2(
     runAppFunction: () {
       LocaleSettings.useDeviceLocale();
@@ -71,12 +66,6 @@ void main() {
       PageReportMode(),
       [
         ConsoleHandler(),
-        if (settings.sentryDsn != null)
-          SentryHandler(
-            SentryClient(
-              SentryOptions(dsn: settings.sentryDsn),
-            ),
-          ),
       ],
     ),
   );
